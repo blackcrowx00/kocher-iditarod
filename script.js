@@ -1,7 +1,7 @@
 const standingsURL =
   "https://api.allorigins.win/raw?url=https://iditarod.com/race/2026/standings/";
 
-const checkpoints = [
+const knownCheckpoints = [
   "White Mountain",
   "Finger Lake",
   "Rainy Pass",
@@ -72,51 +72,36 @@ function parseRacingLine(line) {
     return null;
   }
 
-  const firstSpace = cleaned.indexOf(" ");
-  const position = Number(cleaned.slice(0, firstSpace));
+  const checkpointPattern = knownCheckpoints
+    .sort((a, b) => b.length - a.length)
+    .map((cp) => cp.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+    .join("|");
 
-  if (!Number.isFinite(position)) {
+  const regex = new RegExp(`^(\\d+)\\s+(.+?)\\s+(\\d+)\\s+(${checkpointPattern})\\s+(.+)$`);
+  const match = cleaned.match(regex);
+
+  if (!match) {
     return null;
   }
 
-  for (const checkpoint of checkpoints) {
-    const marker = ` ${checkpoint} `;
-    const checkpointIndex = cleaned.indexOf(marker);
+  const position = Number(match[1]);
+  const name = match[2].trim();
+  const bib = Number(match[3]);
+  const checkpoint = match[4].trim();
+  const remainder = match[5].trim();
+  const dogs = extractDogs(remainder);
 
-    if (checkpointIndex === -1) {
-      continue;
-    }
-
-    const beforeCheckpoint = cleaned.slice(firstSpace + 1, checkpointIndex).trim();
-    const beforeParts = beforeCheckpoint.split(" ");
-
-    if (beforeParts.length < 2) {
-      continue;
-    }
-
-    const bib = Number(beforeParts[beforeParts.length - 1]);
-    if (!Number.isFinite(bib)) {
-      continue;
-    }
-
-    const name = beforeParts.slice(0, -1).join(" ").trim();
-    if (!name) {
-      continue;
-    }
-
-    const remainder = cleaned.slice(checkpointIndex + marker.length).trim();
-    const dogs = extractDogs(remainder);
-
-    return {
-      name,
-      bib,
-      position,
-      checkpoint,
-      dogs
-    };
+  if (!Number.isFinite(position) || !Number.isFinite(bib) || !name) {
+    return null;
   }
 
-  return null;
+  return {
+    name,
+    bib,
+    position,
+    checkpoint,
+    dogs
+  };
 }
 
 async function fetchStandings() {
@@ -127,7 +112,6 @@ async function fetchStandings() {
   }
 
   const html = await response.text();
-
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, "text/html");
   const pageText = doc.body ? doc.body.innerText : "";
@@ -137,12 +121,26 @@ async function fetchStandings() {
     .map((line) => line.trim())
     .filter(Boolean);
 
+  const racingStart = lines.findIndex((line) => line === "Racing");
+  if (racingStart === -1) {
+    throw new Error("Could not find Racing section on standings page.");
+  }
+
   const standings = [];
   const seenBibs = new Set();
 
-  for (const line of lines) {
-    const parsed = parseRacingLine(line);
+  for (let i = racingStart + 1; i < lines.length; i += 1) {
+    const line = lines[i];
 
+    if (
+      line === "Expedition" ||
+      line === "Close" ||
+      line.startsWith("Next Race:")
+    ) {
+      break;
+    }
+
+    const parsed = parseRacingLine(line);
     if (!parsed) {
       continue;
     }
