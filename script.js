@@ -1,56 +1,41 @@
 const standingsURL =
 "https://api.allorigins.win/raw?url=https://iditarod.com/race/2026/standings/";
 
-async function fetchStandings() {
+async function fetchStandings(){
 
-  const response = await fetch(standingsURL);
-  const html = await response.text();
+const response = await fetch(standingsURL)
+const html = await response.text()
 
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(html, "text/html");
+const parser = new DOMParser()
+const doc = parser.parseFromString(html,"text/html")
 
-  const rows = doc.querySelectorAll("table tr");
+const rows = doc.querySelectorAll("table tbody tr")
 
-  let standings = [];
+let standings=[]
 
-  rows.forEach(row => {
+rows.forEach(row=>{
 
-    const cells = row.querySelectorAll("td");
+const cells=row.querySelectorAll("td")
 
-    if (cells.length > 5) {
+if(cells.length>=8){
 
-      const position = cells[0].innerText.trim();
-      const name = cells[1].innerText.trim();
-      const checkpoint = cells[3].innerText.trim();
+const position=parseInt(cells[0].innerText.trim())
+const name=cells[2].innerText.trim()
+const checkpoint=cells[3].innerText.trim()
+const dogs=cells[7].innerText.trim()
 
-      // dogs value usually appears in a cell containing a number
-      let dogs = "";
+standings.push({
+position,
+name,
+checkpoint,
+dogs
+})
 
-      cells.forEach(c => {
-        if (!dogs && /^\d+$/.test(c.innerText.trim())) {
-          dogs = c.innerText.trim();
-        }
-      });
+}
 
-      if (!isNaN(position)) {
+})
 
-        standings.push({
-          position: Number(position),
-          name: name,
-          checkpoint: checkpoint,
-          dogs: dogs
-        });
-
-      }
-
-    }
-
-  });
-
-  console.log("Standings loaded:", standings);
-
-  return standings;
-
+return standings
 }
 
 async function load() {
