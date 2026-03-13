@@ -60,75 +60,72 @@ async function load() {
 
 }
 
-function updateStandings(standings){
+function updateStandings(standings) {
 
-const table=document.querySelector("#standings tbody")
-table.innerHTML=""
+  const table = document.querySelector("#standings tbody");
+  table.innerHTML = "";
 
-standings.forEach(s=>{
+  standings.forEach(s => {
 
-const row=document.createElement("tr")
+    const row = document.createElement("tr");
 
-row.innerHTML=`
-<td>${s.position}</td>
-<td>${s.bib}</td>
-<td>${s.name}</td>
-<td>${s.checkpoint}</td>
-<td>${s.dogs}</td>
-`
+    row.innerHTML = `
+      <td>${s.position}</td>
+      <td>${s.name}</td>
+      <td>${s.checkpoint}</td>
+      <td>${s.dogs}</td>
+    `;
 
-table.appendChild(row)
+    table.appendChild(row);
 
-})
-
-}
-
-function updateLeaderboard(standings,picks){
-
-let board=[]
-
-for(const player in picks){
-
-let score=0
-let mushers=picks[player].mushers
-
-mushers.forEach(musher=>{
-
-const found=standings.find(s=>
-s.name.toLowerCase()===musher.toLowerCase()
-)
-
-score+=found?found.position:50
-
-})
-
-board.push({
-player,
-mushers:mushers.join(", "),
-score,
-color:picks[player].color
-})
+  });
 
 }
 
-board.sort((a,b)=>a.score-b.score)
+function updateLeaderboard(standings, picks) {
 
-const table=document.querySelector("#leaderboard tbody")
-table.innerHTML=""
+  let board = [];
 
-board.forEach(p=>{
+  for (const player in picks) {
 
-const row=document.createElement("tr")
+    let score = 0;
 
-row.innerHTML=`
-<td style="color:${p.color};font-weight:bold">${p.player}</td>
-<td>${p.mushers}</td>
-<td>${p.score}</td>
-`
+    picks[player].forEach(musher => {
 
-table.appendChild(row)
+      const found = standings.find(s =>
+        s.name.toLowerCase().includes(musher.toLowerCase())
+      );
 
-})
+      score += found ? found.position : 50;
+
+    });
+
+    board.push({
+      player,
+      mushers: picks[player].join(", "),
+      score
+    });
+
+  }
+
+  board.sort((a, b) => a.score - b.score);
+
+  const table = document.querySelector("#leaderboard tbody");
+  table.innerHTML = "";
+
+  board.forEach(p => {
+
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td>${p.player}</td>
+      <td>${p.mushers}</td>
+      <td>${p.score}</td>
+    `;
+
+    table.appendChild(row);
+
+  });
 
 }
 
