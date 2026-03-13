@@ -1,7 +1,7 @@
 const standingsURL =
-"https://api.allorigins.win/raw?url=https://iditarod.com/race/2026/standings/";
+"https://api.allorigins.win/raw?url=https://iditarod.com/race/2026/standings/"
 
-async function getStandings(){
+async function fetchStandings(){
 
 const response = await fetch(standingsURL)
 const html = await response.text()
@@ -11,17 +11,21 @@ const doc = parser.parseFromString(html,"text/html")
 
 const rows = doc.querySelectorAll("table tbody tr")
 
-let standings = []
+let standings=[]
 
 rows.forEach((row,index)=>{
 
-const nameCell = row.querySelector("td:nth-child(2)")
+const cells=row.querySelectorAll("td")
 
-if(nameCell){
+if(cells.length>3){
 
 standings.push({
-name:nameCell.innerText.trim(),
-position:index+1
+
+position:index+1,
+name:cells[1].innerText.trim(),
+checkpoint:cells[2].innerText.trim(),
+dogs:cells[3].innerText.trim()
+
 })
 
 }
@@ -29,31 +33,39 @@ position:index+1
 })
 
 return standings
+
 }
 
 async function load(){
 
-const standings = await getStandings()
+document.getElementById("lastUpdated").innerText=
+"Updated: "+new Date().toLocaleTimeString()
 
-const picks = await fetch("picks.json")
+const standings=await fetchStandings()
+
+const picks=await fetch("picks.json")
 .then(r=>r.json())
 
-createStandingsTable(standings)
-createLeaderboard(standings,picks)
+updateStandings(standings)
+
+updateLeaderboard(standings,picks)
 
 }
 
-function createStandingsTable(standings){
+function updateStandings(standings){
 
-const table = document.querySelector("#standings tbody")
+const table=document.querySelector("#standings tbody")
+table.innerHTML=""
 
-standings.forEach(musher=>{
+standings.forEach(s=>{
 
-const row = document.createElement("tr")
+const row=document.createElement("tr")
 
-row.innerHTML = `
-<td>${musher.position}</td>
-<td>${musher.name}</td>
+row.innerHTML=`
+<td>${s.position}</td>
+<td>${s.name}</td>
+<td>${s.checkpoint}</td>
+<td>${s.dogs}</td>
 `
 
 table.appendChild(row)
@@ -62,43 +74,47 @@ table.appendChild(row)
 
 }
 
-function createLeaderboard(standings,picks){
+function updateLeaderboard(standings,picks){
 
-let leaderboard=[]
+let board=[]
 
-for(const person in picks){
+for(const player in picks){
 
-let total=0
+let score=0
 
-picks[person].forEach(musher=>{
+picks[player].forEach(musher=>{
 
-const found = standings.find(s=>s.name.includes(musher))
+const found=standings.find(s=>
+s.name.toLowerCase().includes(musher.toLowerCase())
+)
 
-if(found) total+=found.position
-else total+=50
+score+=found?found.position:50
 
 })
 
-leaderboard.push({
-name:person,
-score:total,
-mushers:picks[person].join(", ")
+board.push({
+
+player,
+mushers:picks[player].join(", "),
+score
+
 })
 
 }
 
-leaderboard.sort((a,b)=>a.score-b.score)
+board.sort((a,b)=>a.score-b.score)
 
-const table = document.querySelector("#leaderboard tbody")
+const table=document.querySelector("#leaderboard tbody")
+table.innerHTML=""
 
-leaderboard.forEach(player=>{
+board.forEach(p=>{
 
 const row=document.createElement("tr")
 
 row.innerHTML=`
-<td>${player.name}</td>
-<td>${player.mushers}</td>
-<td>${player.score}</td>
+<td>${p.player}</td>
+<td>${p.mushers}</td>
+<td>${p.score}</td>
 `
 
 table.appendChild(row)
@@ -108,3 +124,5 @@ table.appendChild(row)
 }
 
 load()
+
+setInterval(load,300000)
