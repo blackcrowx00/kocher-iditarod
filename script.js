@@ -49,87 +49,64 @@ function escapeHtml(value) {
   });
 }
 
-function normalizeLine(line) {
-  return line
-    .replace(/•/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+function normalizeWhitespace(text) {
+  return text.replace(/\s+/g, " ").trim();
 }
 
-function extractDogs(textAfterCheckpoint) {
+function extractDogsFromRemainder(remainder) {
   const datedDogMatches = [
-    ...textAfterCheckpoint.matchAll(/(\d{1,2}\/\d{1,2}\s+\d{2}:\d{2}:\d{2})\s+(\d+)/g)
+    ...remainder.matchAll(/(\d{1,2}\/\d{1,2}\s+\d{2}:\d{2}:\d{2})\s+(\d+)/g)
   ];
 
   if (datedDogMatches.length > 0) {
     return Number(datedDogMatches[datedDogMatches.length - 1][2]);
   }
 
-  const plainNumbers = textAfterCheckpoint.match(/\b\d+\b/g);
-  if (!plainNumbers || plainNumbers.length === 0) return "";
-
-  return Number(plainNumbers[0]);
+  return "";
 }
 
-function parseStandingsLine(line) {
-  const cleaned = normalizeLine(line);
+function parseRacingLine(line) {
+  const cleaned = normalizeWhitespace(line);
 
   if (!/^\d+\s/.test(cleaned)) return null;
 
-  const tokens = cleaned.split(" ");
-  const position = Number(tokens[0]);
+  const firstSpace = cleaned.indexOf(" ");
+  const position = Number(cleaned.slice(0, firstSpace));
   if (!Number.isFinite(position)) return null;
-
-  let bibIndex = -1;
-  for (let i = 1; i < tokens.length; i += 1) {
-    if (/^\d+$/.test(tokens[i])) {
-      bibIndex = i;
-      break;
-    }
-  }
-
-  if (bibIndex === -1) return null;
-
-  const name = tokens.slice(1, bibIndex).join(" ").trim();
-  const bib = Number(tokens[bibIndex]);
-
-  if (!name || !Number.isFinite(bib)) return null;
-
-  let checkpoint = "";
-  let remainder = "";
 
   const sortedCheckpoints = [...knownCheckpoints].sort((a, b) => b.length - a.length);
 
-  for (const cp of sortedCheckpoints) {
-    const escaped = cp.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const pattern = new RegExp(
-      `^\\d+\\s+.+?\\s+${bib}\\s+${escaped}\\s+(.+)$`
-    );
-    const match = cleaned.match(pattern);
+  for (const checkpoint of sortedCheckpoints) {
+    const checkpointIndex = cleaned.indexOf(` ${checkpoint} `);
+    if (checkpointIndex === -1) continue;
 
-    if (match) {
-      checkpoint = cp;
-      remainder = match[1];
-      break;
-    }
+    const beforeCheckpoint = cleaned.slice(firstSpace + 1, checkpointIndex).trim();
+    const beforeParts = beforeCheckpoint.split(" ");
+    const bibText = beforeParts[beforeParts.length - 1];
+    const bib = Number(bibText);
+
+    if (!Number.isFinite(bib)) continue;
+
+    const name = beforeParts.slice(0, -1).join(" ").trim();
+    if (!name) continue;
+
+    const remainder = cleaned.slice(checkpointIndex + checkpoint.length + 2).trim();
+    const dogs = extractDogsFromRemainder(remainder);
+
+    return {
+      name,
+      bib,
+      position,
+      checkpoint,
+      dogs
+    };
   }
 
-  if (!checkpoint) return null;
-
-  const dogs = extractDogs(remainder);
-
-  return {
-    name,
-    bib,
-    position,
-    checkpoint,
-    dogs
-  };
+  return null;
 }
 
 async function fetchStandings() {
   const response = await fetch(standingsURL, { cache: "no-store" });
-
   if (!response.ok) {
     throw new Error(`Standings fetch failed: ${response.status}`);
   }
@@ -163,12 +140,12 @@ async function fetchStandings() {
       break;
     }
 
-    const parsed = parseStandingsLine(line);
+    const parsed = parseRacingLine(line);
     if (!parsed) continue;
 
     if (!seenBibs.has(parsed.bib)) {
-      standings.push(parsed);
       seenBibs.add(parsed.bib);
+      standings.push(parsed);
     }
   }
 
@@ -226,16 +203,13 @@ function updateLeaderboard(standings, picks) {
 }
 
 function showError(message) {
-  const leaderboardBody = document.querySelector("#leaderboard tbody");
-  const standingsBody = document.querySelector("#standings tbody");
-
-  leaderboardBody.innerHTML = `
+  document.querySelector("#leaderboard tbody").innerHTML = `
     <tr class="error-row">
       <td colspan="3">${escapeHtml(message)}</td>
     </tr>
   `;
 
-  standingsBody.innerHTML = `
+  document.querySelector("#standings tbody").innerHTML = `
     <tr class="error-row">
       <td colspan="5">${escapeHtml(message)}</td>
     </tr>
@@ -256,6 +230,9 @@ async function load() {
         return response.json();
       })
     ]);
+
+    console.log("Parsed standings:", standings);
+    console.log("Picks:", picks);
 
     updateStandingsTable(standings);
     updateLeaderboard(standings, picks);
