@@ -1,30 +1,30 @@
 const standingsURL =
   "https://api.allorigins.win/raw?url=https://iditarod.com/race/2026/standings/";
 
-const knownCheckpoints = [
-  "Anchorage",
-  "Willow",
-  "Yentna",
-  "Skwentna",
+const checkpoints = [
+  "White Mountain",
   "Finger Lake",
   "Rainy Pass",
-  "Rohn",
-  "Nikolai",
+  "Unalakleet",
+  "Shaktoolik",
+  "Skwentna",
+  "Anchorage",
   "McGrath",
   "Takotna",
-  "Ophir",
+  "Nikolai",
+  "Golovin",
+  "Safety",
+  "Willow",
+  "Yentna",
   "Cripple",
-  "Ruby",
   "Galena",
   "Nulato",
   "Kaltag",
-  "Unalakleet",
-  "Shaktoolik",
   "Koyuk",
   "Elim",
-  "Golovin",
-  "White Mountain",
-  "Safety",
+  "Ophir",
+  "Rohn",
+  "Ruby",
   "Nome"
 ];
 
@@ -53,13 +53,13 @@ function normalizeWhitespace(text) {
   return text.replace(/\s+/g, " ").trim();
 }
 
-function extractDogsFromRemainder(remainder) {
-  const datedDogMatches = [
+function extractDogs(remainder) {
+  const datedDogPairs = [
     ...remainder.matchAll(/(\d{1,2}\/\d{1,2}\s+\d{2}:\d{2}:\d{2})\s+(\d+)/g)
   ];
 
-  if (datedDogMatches.length > 0) {
-    return Number(datedDogMatches[datedDogMatches.length - 1][2]);
+  if (datedDogPairs.length > 0) {
+    return Number(datedDogPairs[datedDogPairs.length - 1][2]);
   }
 
   return "";
@@ -68,30 +68,44 @@ function extractDogsFromRemainder(remainder) {
 function parseRacingLine(line) {
   const cleaned = normalizeWhitespace(line);
 
-  if (!/^\d+\s/.test(cleaned)) return null;
+  if (!/^\d+\s/.test(cleaned)) {
+    return null;
+  }
 
   const firstSpace = cleaned.indexOf(" ");
   const position = Number(cleaned.slice(0, firstSpace));
-  if (!Number.isFinite(position)) return null;
 
-  const sortedCheckpoints = [...knownCheckpoints].sort((a, b) => b.length - a.length);
+  if (!Number.isFinite(position)) {
+    return null;
+  }
 
-  for (const checkpoint of sortedCheckpoints) {
-    const checkpointIndex = cleaned.indexOf(` ${checkpoint} `);
-    if (checkpointIndex === -1) continue;
+  for (const checkpoint of checkpoints) {
+    const marker = ` ${checkpoint} `;
+    const checkpointIndex = cleaned.indexOf(marker);
+
+    if (checkpointIndex === -1) {
+      continue;
+    }
 
     const beforeCheckpoint = cleaned.slice(firstSpace + 1, checkpointIndex).trim();
     const beforeParts = beforeCheckpoint.split(" ");
-    const bibText = beforeParts[beforeParts.length - 1];
-    const bib = Number(bibText);
 
-    if (!Number.isFinite(bib)) continue;
+    if (beforeParts.length < 2) {
+      continue;
+    }
+
+    const bib = Number(beforeParts[beforeParts.length - 1]);
+    if (!Number.isFinite(bib)) {
+      continue;
+    }
 
     const name = beforeParts.slice(0, -1).join(" ").trim();
-    if (!name) continue;
+    if (!name) {
+      continue;
+    }
 
-    const remainder = cleaned.slice(checkpointIndex + checkpoint.length + 2).trim();
-    const dogs = extractDogsFromRemainder(remainder);
+    const remainder = cleaned.slice(checkpointIndex + marker.length).trim();
+    const dogs = extractDogs(remainder);
 
     return {
       name,
@@ -107,11 +121,13 @@ function parseRacingLine(line) {
 
 async function fetchStandings() {
   const response = await fetch(standingsURL, { cache: "no-store" });
+
   if (!response.ok) {
     throw new Error(`Standings fetch failed: ${response.status}`);
   }
 
   const html = await response.text();
+
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, "text/html");
   const pageText = doc.body ? doc.body.innerText : "";
@@ -121,27 +137,15 @@ async function fetchStandings() {
     .map((line) => line.trim())
     .filter(Boolean);
 
-  const racingIndex = lines.findIndex((line) => line === "Racing");
-  if (racingIndex === -1) {
-    throw new Error("Could not find Racing section.");
-  }
-
   const standings = [];
   const seenBibs = new Set();
 
-  for (let i = racingIndex + 1; i < lines.length; i += 1) {
-    const line = lines[i];
-
-    if (
-      line === "Expedition" ||
-      line === "Close" ||
-      line.startsWith("Next Race:")
-    ) {
-      break;
-    }
-
+  for (const line of lines) {
     const parsed = parseRacingLine(line);
-    if (!parsed) continue;
+
+    if (!parsed) {
+      continue;
+    }
 
     if (!seenBibs.has(parsed.bib)) {
       seenBibs.add(parsed.bib);
@@ -174,12 +178,17 @@ function updateLeaderboard(standings, picks) {
   const tbody = document.querySelector("#leaderboard tbody");
   tbody.innerHTML = "";
 
+  const bibToPosition = new Map();
+  standings.forEach((musher) => {
+    bibToPosition.set(Number(musher.bib), Number(musher.position));
+  });
+
   const leaderboard = Object.entries(picks).map(([person, bibs]) => {
     let points = 0;
 
     bibs.forEach((bib) => {
-      const musher = standings.find((entry) => entry.bib === Number(bib));
-      points += musher ? musher.position : 50;
+      const position = bibToPosition.get(Number(bib));
+      points += Number.isFinite(position) ? position : 50;
     });
 
     return {
