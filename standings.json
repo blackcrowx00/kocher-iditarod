@@ -1,6 +1,205 @@
 {
-  "updated": null,
+  "updated": "2026-03-13T22:08:58.339Z",
   "source": "https://iditarod.com/race/2026/standings/",
-  "count": 0,
-  "mushers": []
+  "count": 33,
+  "mushers": [
+    {
+      "pos": 1,
+      "name": "Jessie Holmes",
+      "status": "Racing",
+      "checkpoint": "Ruby"
+    },
+    {
+      "pos": 2,
+      "name": "Paige Drobny",
+      "status": "Racing",
+      "checkpoint": "Ruby"
+    },
+    {
+      "pos": 3,
+      "name": "Mille Porsild",
+      "status": "Racing",
+      "checkpoint": "Ruby"
+    },
+    {
+      "pos": 4,
+      "name": "Travis Beals",
+      "status": "Racing",
+      "checkpoint": "Ruby"
+    },
+    {
+      "pos": 5,
+      "name": "Ryan Redington",
+      "status": "Racing",
+      "checkpoint": "Ruby"
+    },
+    {
+      "pos": 7,
+      "name": "Matt Hall",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 8,
+      "name": "Jeff Deeter",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 9,
+      "name": "Riley Dyche",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 10,
+      "name": "Wade Marrs",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 11,
+      "name": "Peter Kaiser",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 12,
+      "name": "Jessie Royer",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 13,
+      "name": "Lauro Eklund",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 14,
+      "name": "Bailey Vitello",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 15,
+      "name": "Hanna Lyrek",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 16,
+      "name": "Josi (Thyr) Shelley",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 17,
+      "name": "Sam Martin (r)",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 18,
+      "name": "Kevin Hansen (r)",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 19,
+      "name": "Rohn Buser",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 20,
+      "name": "Keaton Loebrich",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 21,
+      "name": "Jesse Terry (r)",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 22,
+      "name": "Chad Stoddard",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 23,
+      "name": "Gabe Dunham",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 24,
+      "name": "Brenda Mackey (r)",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 25,
+      "name": "Sydnie Bahl (r)",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 26,
+      "name": "Richie Beattie (r)",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 27,
+      "name": "Jason Mackey",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 28,
+      "name": "Joseph Sabin (r)",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 29,
+      "name": "Grayson Bruton",
+      "status": "Racing",
+      "checkpoint": "Ophir"
+    },
+    {
+      "pos": 30,
+      "name": "Michelle Phillips",
+      "status": "Racing",
+      "checkpoint": "6 •"
+    },
+    {
+      "pos": 30,
+      "name": "Sam Paperman (r)",
+      "status": "Racing",
+      "checkpoint": "Ophir"
+    },
+    {
+      "pos": 31,
+      "name": "Sadie Lindquist (r)",
+      "status": "Racing",
+      "checkpoint": "Ophir"
+    },
+    {
+      "pos": 32,
+      "name": "Adam Lindenmuth (r)",
+      "status": "Racing",
+      "checkpoint": "Ophir"
+    },
+    {
+      "pos": 33,
+      "name": "Jody Potts-Joseph (r)",
+      "status": "Racing",
+      "checkpoint": "Ophir"
+    }
+  ]
 }
