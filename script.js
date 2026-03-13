@@ -17,15 +17,18 @@ rows.forEach(row=>{
 
 const cells=row.querySelectorAll("td")
 
+// ensure it is a valid musher row
 if(cells.length>=8){
 
 const position=parseInt(cells[0].innerText.trim())
+const bib=cells[1].innerText.trim()
 const name=cells[2].innerText.trim()
 const checkpoint=cells[3].innerText.trim()
 const dogs=cells[7].innerText.trim()
 
 standings.push({
 position,
+bib,
 name,
 checkpoint,
 dogs
