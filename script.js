@@ -23,15 +23,18 @@ function escapeHtml(value) {
 }
 
 function normalizeWhitespace(text) {
-  return text.replace(/\s+/g, " ").trim();
+  return text.replace(/\u00a0/g, " ").replace(/\s+/g, " ").trim();
 }
 
 function parseStandingsLine(line) {
   const cleaned = normalizeWhitespace(line);
 
-  // Example:
+  // Matches lines like:
+  // 1 Jessie Holmes 7 Ruby 3/13 04:55:00 15 ...
   // 4 Ryan Redington 5 Cripple 3/12 19:08:00 16 3/12 19:30:00 16 ...
-  const match = cleaned.match(/^(\d+)\s+(.+?)\s+(\d+)\s+([A-Za-z][A-Za-z\s]+?)\s+(\d{1,2}\/\d{1,2}\s+\d{2}:\d{2}:\d{2})\s+(\d+)/);
+  const match = cleaned.match(
+    /^(\d+)\s+(.+?)\s+(\d+)\s+([A-Za-z][A-Za-z\s]+?)\s+(\d{1,2}\/\d{1,2})\s+(\d{2}:\d{2}:\d{2})\s+(\d+)/
+  );
 
   if (!match) return null;
 
@@ -39,9 +42,9 @@ function parseStandingsLine(line) {
   const name = match[2].trim();
   const bib = Number(match[3]);
   const checkpoint = match[4].trim();
-  const dogs = Number(match[6]);
+  const dogs = Number(match[7]);
 
-  if (!Number.isFinite(position) || !Number.isFinite(bib)) {
+  if (!Number.isFinite(position) || !Number.isFinite(bib) || !Number.isFinite(dogs)) {
     return null;
   }
 
@@ -72,18 +75,21 @@ async function fetchStandings() {
   const standings = [];
   const seenBibs = new Set();
 
-  // Skip the 3 header lines after "Racing"
-  for (let i = racingIndex + 4; i < lines.length; i += 1) {
+  for (let i = racingIndex + 1; i < lines.length; i += 1) {
     const line = lines[i];
 
-    // Stop once standings rows end
+    if (line === "Expedition" || line === "Close" || line.startsWith("Print standings")) {
+      break;
+    }
+
     if (!/^\d+\s/.test(line)) {
-      if (standings.length > 0) break;
       continue;
     }
 
     const parsed = parseStandingsLine(line);
-    if (!parsed) continue;
+    if (!parsed) {
+      continue;
+    }
 
     if (!seenBibs.has(parsed.bib)) {
       seenBibs.add(parsed.bib);
@@ -134,11 +140,7 @@ function updateLeaderboard(standings, picks) {
       points += Number.isFinite(position) ? position : 50;
     });
 
-    return {
-      person,
-      bibs,
-      points
-    };
+    return { person, bibs, points };
   });
 
   leaderboard.sort((a, b) => a.points - b.points);
@@ -156,13 +158,13 @@ function updateLeaderboard(standings, picks) {
 
 function showError(message) {
   document.querySelector("#leaderboard tbody").innerHTML = `
-    <tr class="error-row">
+    <tr>
       <td colspan="3">${escapeHtml(message)}</td>
     </tr>
   `;
 
   document.querySelector("#standings tbody").innerHTML = `
-    <tr class="error-row">
+    <tr>
       <td colspan="5">${escapeHtml(message)}</td>
     </tr>
   `;
@@ -184,10 +186,16 @@ async function load() {
     ]);
 
     console.log("Parsed standings:", standings);
-    console.log(
-      "Bib to position:",
-      Object.fromEntries(standings.map((m) => [m.bib, m.position]))
-    );
+    console.log("Bib map:", Object.fromEntries(standings.map((m) => [m.bib, m.position])));
+    console.log("Picks:", picks);
 
     updateStandingsTable(standings);
-    updateLeaderboa:contentReference[oaicite:2]{index=2}
+    updateLeaderboard(standings, picks);
+  } catch (error) {
+    console.error(error);
+    showError("Could not load race data. Check browser console.");
+  }
+}
+
+load();
+setInterval(load, 300000);
