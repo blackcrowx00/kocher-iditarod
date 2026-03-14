@@ -151,16 +151,11 @@
   <!-- FAMILY LEADERBOARD -->
   <div id="view-leaderboard" class="view active">
     <div class="scoring-key">
-      <strong>SCORING:</strong>
-      <span class="key-item"><span class="key-dot" style="background:var(--gold)"></span>1st = 10 pts</span>
-      <span class="key-item"><span class="key-dot" style="background:var(--silver)"></span>2nd = 8 pts</span>
-      <span class="key-item"><span class="key-dot" style="background:var(--bronze)"></span>3rd = 6 pts</span>
-      <span class="key-item"><span class="key-dot" style="background:var(--aurora-g)"></span>4th = 5 pts</span>
-      <span class="key-item"><span class="key-dot" style="background:var(--aurora-b)"></span>5th = 4 pts</span>
-      <span class="key-item"><span class="key-dot" style="background:#60a5fa"></span>6th = 3 pts</span>
-      <span class="key-item"><span class="key-dot" style="background:#818cf8"></span>7th = 2 pts</span>
-      <span class="key-item"><span class="key-dot" style="background:var(--aurora-p)"></span>8th–10th = 1 pt</span>
-      <span class="key-item"><span class="key-dot" style="background:var(--muted)"></span>11th+ / SCR = 0 pts</span>
+      <strong>SCORING (GOLF STYLE):</strong>
+      <span class="key-item"><span class="key-dot" style="background:var(--gold)"></span>Add up each musher's race position</span>
+      <span class="key-item"><span class="key-dot" style="background:var(--aurora-g)"></span>1st place = 1 pt · 2nd = 2 pts · etc.</span>
+      <span class="key-item"><span class="key-dot" style="background:var(--danger)"></span>Scratched = last place + 10 penalty</span>
+      <span class="key-item"><span class="key-dot" style="background:var(--silver)"></span>⬇️ LOWEST combined score wins</span>
     </div>
     <div class="family-grid" id="family-grid">
       <div class="no-data"><span class="emoji">⏳</span>Loading standings...</div>
@@ -203,10 +198,11 @@
 
 <script>
 // ── FLAT POINTS ──────────────────────────────
-const PTS = {1:10,2:8,3:6,4:5,5:4,6:3,7:2,8:1,9:1,10:1};
-function getPoints(pos,status){
-  if(!pos||status==='Scratched')return 0;
-  return PTS[pos]||0;
+// Golf scoring: position number IS the score. Lowest total wins.
+// Scratched/unknown = last place + 10 penalty.
+function getPoints(pos,status,lastPlace){
+  if(status==='Scratched'||!pos) return (lastPlace||50)+10;
+  return pos;
 }
 
 // ── FAMILY PICKS (hardcoded — update each year) ──
@@ -269,11 +265,12 @@ async function fetchStandings(){
 function norm(s){return(s||'').toLowerCase().trim().replace(/\s+/g,' ');}
 
 function scoreMember(member){
+  const lastPlace=raceData.length||50;
   let total=0;
   const details=member.picks.map(picked=>{
     const m=raceData.find(r=>norm(r.name)===norm(picked));
-    if(!m)return{name:picked,pos:null,status:'unknown',checkpoint:'',pts:0};
-    const pts=getPoints(m.pos,m.status);
+    if(!m)return{name:picked,pos:null,status:'unknown',checkpoint:'',pts:lastPlace+10};
+    const pts=getPoints(m.pos,m.status,lastPlace);
     total+=pts;
     return{...m,name:picked,pts};
   });
@@ -283,13 +280,14 @@ function scoreMember(member){
 // ── RENDER: Family leaderboard ───────────────
 function renderFamilyGrid(){
   const grid=document.getElementById('family-grid');
-  const scored=config.members.map(scoreMember).sort((a,b)=>b.total-a.total);
+  const lastPlace=raceData.length||50;
+  const scored=config.members.map(scoreMember).sort((a,b)=>a.total-b.total);
   const medals=['🥇','🥈','🥉','4️⃣'];
   grid.innerHTML=scored.map((m,rank)=>`
     <div class="family-card" style="--card-color:${m.color}">
       <div class="card-rank">${rank+1}</div>
       <div class="card-name">${m.name} ${medals[rank]||''}</div>
-      <div class="card-score">${m.total} pts · Rank #${rank+1}</div>
+      <div class="card-score">Combined pos: ${m.total} · ${rank===0?'🏆 Leading!':'#'+(rank+1)}</div>
       <div class="card-mushers">
         ${m.details.map(d=>{
           const pc=d.status==='Scratched'?'scr':!d.pos?'unknown':d.pos===1?'gold':d.pos===2?'silver':d.pos===3?'bronze':'';
@@ -297,7 +295,7 @@ function renderFamilyGrid(){
           return`<div class="musher-row">
             <span class="musher-pos ${pc}">${pl}</span>
             <span class="musher-name">${d.name}</span>
-            <span class="musher-pts ${d.pts===0?'zero':''}">${d.pts>0?'+'+d.pts+'pt':''}</span>
+            <span class="musher-pts ${d.pts>=(lastPlace+10)?'zero':''}">${d.pos?'pos '+d.pos:'—'}</span>
           </div>`;
         }).join('')}
       </div>
@@ -323,7 +321,7 @@ function renderStandingsTable(){
       <td>${m.name}</td>
       <td><span class="${sc}">${m.status||'Racing'}</span></td>
       <td style="color:var(--muted);font-size:.85rem">${m.checkpoint||'—'}</td>
-      <td><span class="pts-col ${pts===0?'zero':''}">${pts>0?pts+'pt':'—'}</span></td>
+      <td><span class="pts-col ${pts>=(raceData.length+10)?'zero':''}">${m.status==='Scratched'?'SCR':m.pos?'+'+m.pos:'—'}</span></td>
       <td><div class="picked-by">${pickers.map(p=>`<span class="picker-tag" style="color:${p.color};border-color:${p.color}40;background:${p.color}10">${p.name.split(' ')[0]}</span>`).join('')}</div></td>
     </tr>`;
   }).join('');
