@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kocher Iditarod Tracker 🐕</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --deep:#0a1628;--frost:#a8d8ea;--aurora-g:#3ecf8e;--aurora-b:#38bdf8;--aurora-p:#a78bfa;
+      --gold:#f59e0b;--silver:#94a3b8;--bronze:#cd7c3a;--danger:#ef4444;--text:#e2e8f0;--muted:#64748b;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--deep);color:var(--text);font-family:'Source Serif 4',Georgia,serif;min-height:100vh;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+      background-image:
+        radial-gradient(1px 1px at 10% 15%,rgba(255,255,255,.5) 0%,transparent 100%),
+        radial-gradient(1px 1px at 30% 45%,rgba(255,255,255,.35) 0%,transparent 100%),
+        radial-gradient(1px 1px at 55% 10%,rgba(255,255,255,.5) 0%,transparent 100%),
+        radial-gradient(1px 1px at 72% 62%,rgba(255,255,255,.3) 0%,transparent 100%),
+        radial-gradient(1px 1px at 85% 25%,rgba(255,255,255,.5) 0%,transparent 100%),
+        radial-gradient(1px 1px at 20% 80%,rgba(255,255,255,.35) 0%,transparent 100%),
+        radial-gradient(1px 1px at 90% 85%,rgba(255,255,255,.4) 0%,transparent 100%)}
+    body::after{content:'';position:fixed;top:0;left:0;right:0;height:35vh;pointer-events:none;z-index:0;
+      background:linear-gradient(180deg,rgba(56,189,248,.12) 0%,rgba(62,207,142,.07) 40%,rgba(167,139,250,.05) 70%,transparent 100%);
+      animation:aurora 8s ease-in-out infinite alternate}
+    @keyframes aurora{0%{opacity:.6}100%{opacity:1}}
+
+    .container{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 1.5rem 4rem}
+
+    header{text-align:center;padding:3rem 0 2rem;border-bottom:1px solid rgba(168,216,234,.15);margin-bottom:2.5rem}
+    .header-dog{font-size:3rem;display:block;margin-bottom:.5rem;filter:drop-shadow(0 0 14px rgba(56,189,248,.5))}
+    header h1{font-family:'Teko',sans-serif;font-size:clamp(2.8rem,7vw,5rem);font-weight:700;letter-spacing:.04em;text-transform:uppercase;line-height:1;
+      background:linear-gradient(135deg,#e8f4f8 0%,#38bdf8 50%,#3ecf8e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    header p{color:var(--muted);font-style:italic;font-size:1rem;margin-top:.5rem}
+    .year-badge{display:inline-block;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3);color:var(--aurora-b);
+      font-family:'Teko',sans-serif;font-size:1.1rem;letter-spacing:.1em;padding:.2rem .8rem;border-radius:4px;margin-top:.75rem}
+
+    nav{display:flex;gap:.4rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap}
+    .nav-btn{font-family:'Teko',sans-serif;font-size:1rem;letter-spacing:.07em;text-transform:uppercase;
+      padding:.45rem 1.1rem;border:1px solid rgba(168,216,234,.2);background:rgba(255,255,255,.03);
+      color:var(--silver);border-radius:4px;cursor:pointer;transition:all .2s}
+    .nav-btn:hover,.nav-btn.active{background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.4);color:var(--aurora-b)}
+
+    .view{display:none}.view.active{display:block}
+
+    .status-bar{display:flex;align-items:center;background:rgba(255,255,255,.03);border:1px solid rgba(168,216,234,.1);
+      border-radius:8px;padding:.75rem 1.25rem;margin-bottom:2rem;gap:1rem;flex-wrap:wrap}
+    .status-dot{width:8px;height:8px;border-radius:50%;background:var(--aurora-g);box-shadow:0 0 6px var(--aurora-g);animation:pulse 2s infinite;flex-shrink:0}
+    .status-dot.warn{background:var(--gold);box-shadow:0 0 6px var(--gold)}
+    .status-dot.error{background:var(--danger);box-shadow:0 0 6px var(--danger);animation:none}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+    .status-text{font-size:.85rem;color:var(--muted);flex:1}
+
+    .scoring-key{display:flex;gap:.6rem 1.1rem;flex-wrap:wrap;align-items:center;
+      background:rgba(255,255,255,.02);border:1px solid rgba(168,216,234,.08);border-radius:8px;
+      padding:.65rem 1.25rem;margin-bottom:1.75rem;font-size:.8rem;color:var(--muted)}
+    .scoring-key strong{font-family:'Teko',sans-serif;font-size:.95rem;letter-spacing:.05em;color:var(--frost);margin-right:.25rem}
+    .key-item{display:flex;align-items:center;gap:.35rem;white-space:nowrap}
+    .key-dot{width:7px;height:7px;border-radius:50%}
+
+    .bracket-header{margin-bottom:1.5rem}
+    .bracket-header h2{font-family:'Teko',sans-serif;font-size:1.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--frost);margin-bottom:.25rem}
+    .bracket-header p{color:var(--muted);font-size:.875rem;font-style:italic}
+
+    /* CARDS */
+    .family-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:1.25rem;margin-bottom:2.5rem}
+    .family-card{background:linear-gradient(135deg,rgba(255,255,255,.04) 0%,rgba(255,255,255,.01) 100%);
+      border:1px solid rgba(168,216,234,.12);border-radius:12px;padding:1.25rem;
+      position:relative;overflow:hidden;transition:transform .2s,border-color .2s}
+    .family-card:hover{transform:translateY(-2px);border-color:rgba(168,216,234,.25)}
+    .family-card.leading{border-color:rgba(245,158,11,.4);box-shadow:0 0 18px rgba(245,158,11,.07)}
+    .family-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+      background:var(--card-color,var(--aurora-b));border-radius:12px 12px 0 0}
+    .card-rank{font-family:'Teko',sans-serif;font-size:3rem;font-weight:700;line-height:1;
+      color:var(--card-color,var(--aurora-b));opacity:.18;position:absolute;top:.75rem;right:1rem}
+    .card-name{font-family:'Teko',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+    .card-score{font-family:'Teko',sans-serif;font-size:1.05rem;color:var(--card-color,var(--aurora-b));letter-spacing:.04em;margin-bottom:1rem}
+    .card-body{display:flex;flex-direction:column;gap:.5rem}
+    .card-row{display:flex;align-items:center;gap:.5rem;font-size:.85rem}
+    .card-row-label{font-family:'Teko',sans-serif;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);min-width:3.5rem}
+    .musher-pos{font-family:'Teko',sans-serif;font-size:1.05rem;min-width:2.4rem;color:var(--aurora-b)}
+    .musher-pos.gold{color:var(--gold)}.musher-pos.silver{color:var(--silver)}.musher-pos.bronze{color:var(--bronze)}
+    .musher-pos.scr{color:var(--danger);font-size:.85rem}.musher-pos.unknown{color:var(--muted)}
+    .musher-name{flex:1}
+    .musher-pts{font-family:'Teko',sans-serif;font-size:1rem;color:var(--aurora-g)}
+    .musher-pts.muted{color:var(--muted)}
+    .divider{height:1px;background:rgba(168,216,234,.08);margin:.4rem 0}
+    .badge{display:inline-block;font-family:'Teko',sans-serif;font-size:.72rem;letter-spacing:.06em;padding:.1rem .4rem;border-radius:3px;border:1px solid;white-space:nowrap}
+    .badge-rookie{color:var(--aurora-p);border-color:rgba(167,139,250,.35);background:rgba(167,139,250,.08)}
+    .badge-win{color:var(--aurora-g);border-color:rgba(62,207,142,.35);background:rgba(62,207,142,.08)}
+    .badge-backup{color:var(--aurora-b);border-color:rgba(56,189,248,.35);background:rgba(56,189,248,.08)}
+    .badge-scr{color:var(--danger);border-color:rgba(239,68,68,.35);background:rgba(239,68,68,.06)}
+    .badge-pending{color:var(--muted);border-color:rgba(100,116,139,.3);background:rgba(100,116,139,.05)}
+    .time-display{font-family:'Teko',sans-serif;font-size:1.3rem;color:var(--text);letter-spacing:.04em}
+    .time-diff{font-family:'Teko',sans-serif;font-size:1rem}
+    .time-diff.close{color:var(--aurora-g)}.time-diff.off{color:var(--muted)}.time-diff.winner{color:var(--gold)}
+
+    /* TABLE */
+    .standings-section h2{font-family:'Teko',sans-serif;font-size:1.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--frost);margin-bottom:1rem}
+    .table-wrap{overflow-x:auto;border:1px solid rgba(168,216,234,.1);border-radius:10px}
+    table{width:100%;border-collapse:collapse;font-size:.9rem}
+    thead th{background:rgba(255,255,255,.05);font-family:'Teko',sans-serif;font-size:.95rem;letter-spacing:.1em;
+      text-transform:uppercase;color:var(--muted);padding:.75rem 1rem;text-align:left;
+      border-bottom:1px solid rgba(168,216,234,.1);white-space:nowrap}
+    tbody tr{border-bottom:1px solid rgba(168,216,234,.06);transition:background .15s}
+    tbody tr:hover{background:rgba(255,255,255,.03)}
+    tbody tr.picked{background:rgba(56,189,248,.04)}
+    tbody tr.rookie-hl{background:rgba(167,139,250,.04)}
+    tbody td{padding:.65rem 1rem;vertical-align:middle}
+    .pos-num{font-family:'Teko',sans-serif;font-size:1.2rem;color:var(--aurora-b)}
+    tr.p1 .pos-num{color:var(--gold)}tr.p2 .pos-num{color:var(--silver)}tr.p3 .pos-num{color:var(--bronze)}
+    .picked-by{display:flex;gap:.3rem;flex-wrap:wrap}
+    .picker-tag{font-size:.7rem;font-family:'Teko',sans-serif;letter-spacing:.05em;padding:.1rem .45rem;border-radius:3px;border:1px solid}
+    .s-racing{color:var(--aurora-g)}.s-finished{color:var(--gold)}.s-scr{color:var(--danger)}
+
+    /* CONFIG */
+    .config-section h2{font-family:'Teko',sans-serif;font-size:1.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--frost);margin-bottom:.5rem}
+    .config-section>p{color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;font-style:italic}
+    .member-blocks{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem;margin-bottom:2rem}
+    .member-block{background:rgba(255,255,255,.03);border:1px solid rgba(168,216,234,.1);border-radius:10px;padding:1.25rem}
+    .block-title{font-family:'Teko',sans-serif;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid rgba(168,216,234,.1)}
+    .member-block label{display:block;font-family:'Teko',sans-serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+    .member-block input{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(168,216,234,.15);border-radius:6px;
+      padding:.45rem .75rem;color:var(--text);font-family:'Source Serif 4',serif;font-size:.9rem;margin-bottom:.65rem;transition:border-color .2s}
+    .member-block input:focus{outline:none;border-color:rgba(56,189,248,.4)}
+    .member-block input::placeholder{color:var(--muted)}
+    .color-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.65rem}
+    .color-row input[type="color"]{width:40px;height:32px;padding:2px;cursor:pointer;margin-bottom:0}
+    .section-divider{height:1px;background:rgba(168,216,234,.1);margin:.4rem 0 .75rem}
+    .section-label{font-family:'Teko',sans-serif;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--aurora-p);margin-bottom:.5rem}
+    .time-row{display:flex;gap:.5rem}
+    .time-row>div{flex:1}
+    .save-btn{font-family:'Teko',sans-serif;font-size:1.15rem;letter-spacing:.08em;text-transform:uppercase;
+      padding:.6rem 2rem;background:linear-gradient(135deg,rgba(56,189,248,.2),rgba(62,207,142,.2));
+      border:1px solid rgba(56,189,248,.4);color:var(--aurora-b);border-radius:6px;cursor:pointer;transition:all .2s}
+    .save-btn:hover{background:linear-gradient(135deg,rgba(56,189,248,.3),rgba(62,207,142,.3))}
+    .save-confirm{display:none;color:var(--aurora-g);font-size:.9rem;margin-top:.5rem}
+    .info-box{background:rgba(56,189,248,.06);border:1px solid rgba(56,189,248,.18);border-radius:8px;
+      padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:.875rem;color:#93c5fd;line-height:1.6}
+    .info-box strong{display:block;color:var(--aurora-b);font-family:'Teko',sans-serif;font-size:1rem;letter-spacing:.05em;margin-bottom:.3rem}
+    .finish-time-block{background:rgba(255,255,255,.03);border:1px solid rgba(168,216,234,.1);border-radius:10px;padding:1.25rem;margin-bottom:1.75rem}
+    .finish-time-block h3{font-family:'Teko',sans-serif;font-size:1.2rem;letter-spacing:.07em;text-transform:uppercase;color:var(--frost);margin-bottom:.5rem}
+    .finish-time-block p{color:var(--muted);font-size:.85rem;margin-bottom:.75rem;font-style:italic}
+    .finish-time-inputs{display:flex;gap:.75rem;flex-wrap:wrap}
+    .finish-time-inputs>div{flex:1;min-width:100px}
+    code{background:rgba(255,255,255,.08);padding:.1rem .35rem;border-radius:3px;font-size:.85em}
+
+    .no-data{text-align:center;padding:3rem 1rem;color:var(--muted);font-style:italic}
+    .no-data .emoji{font-size:3rem;display:block;margin-bottom:1rem}
+    .loader{display:inline-block;width:13px;height:13px;border:2px solid rgba(56,189,248,.2);
+      border-top-color:var(--aurora-b);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:5px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @media(max-width:640px){header h1{font-size:2.5rem}.family-grid{grid-template-columns:1fr 1fr}.nav-btn{font-size:.85rem;padding:.4rem .75rem}}
+    @media(max-width:420px){.family-grid{grid-template-columns:1fr}}
+  </style>
+  <script src="picks.js"></script>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <span class="header-dog">🐕‍🦺</span>
+    <h1>Kocher Iditarod</h1>
+    <p>The Last Great Race on Earth — Family Edition</p>
+    <span class="year-badge">2026 SEASON</span>
+  </header>
+
+  <nav>
+    <button class="nav-btn active" onclick="showView('score',this)">🏆 Total Score</button>
+    <button class="nav-btn" onclick="showView('best',this)">⭐ Best Musher</button>
+    <button class="nav-btn" onclick="showView('rookie',this)">🐾 Rookies</button>
+    <button class="nav-btn" onclick="showView('time',this)">⏱️ Finish Time</button>
+    <button class="nav-btn" onclick="showView('race',this)">📋 Race Standings</button>
+    <button class="nav-btn" onclick="showView('config',this)">⚙️ Configure</button>
+  </nav>
+
+  <div class="status-bar">
+    <div class="status-dot" id="status-dot"></div>
+    <span class="status-text" id="status-text"><span class="loader"></span> Fetching standings...</span>
+  </div>
+
+  <!-- BRACKET 1: TOTAL SCORE -->
+  <div id="view-score" class="view active">
+    <div class="bracket-header">
+      <h2>🏆 Total Score Bracket</h2>
+      <p>Golf scoring — add up all 3 mushers' race positions. Lowest combined total wins.</p>
+    </div>
+    <div class="scoring-key">
+      <strong>SCORING:</strong>
+      <span class="key-item"><span class="key-dot" style="background:var(--aurora-b)"></span>Each musher's race position = their score (1st=1, 2nd=2…)</span>
+      <span class="key-item"><span class="key-dot" style="background:var(--aurora-g)"></span>Add all 3 together</span>
+      <span class="key-item"><span class="key-dot" style="background:var(--gold)"></span>⬇️ Lowest total wins</span>
+      <span class="key-item"><span class="key-dot" style="background:var(--danger)"></span>Scratched = last place +10</span>
+    </div>
+    <div class="family-grid" id="grid-score">
+      <div class="no-data"><span class="emoji">⏳</span>Loading...</div>
+    </div>
+  </div>
+
+  <!-- BRACKET 2: BEST MUSHER -->
+  <div id="view-best" class="view">
+    <div class="bracket-header">
+      <h2>⭐ Best Musher Bracket</h2>
+      <p>Forget the team — whose single best pick is furthest ahead in the race?</p>
+    </div>
+    <div class="scoring-key">
+      <strong>SCORING:</strong>
+      <span class="key-item"><span class="key-dot" style="background:var(--aurora-b)"></span>Take the best-placed musher from each person's 3 picks</span>
+      <span class="key-item"><span class="key-dot" style="background:var(--gold)"></span>⬇️ Lowest single position wins</span>
+    </div>
+    <div class="family-grid" id="grid-best">
+      <div class="no-data"><span class="emoji">⏳</span>Loading...</div>
+    </div>
+  </div>
+
+  <!-- BRACKET 3: ROOKIE -->
+  <div id="view-rookie" class="view">
+    <div class="bracket-header">
+      <h2>🐾 Rookie Bracket</h2>
+      <p>Each person picked a primary and backup rookie. Lowest finishing position wins. Backup is used if primary scratches.</p>
+    </div>
+    <div class="scoring-key">
+      <strong>SCORING:</strong>
+      <span class="key-item"><span class="key-dot" style="background:var(--aurora-p)"></span>Primary rookie used first</span>
+      <span class="key-item"><span class="key-dot" style="background:var(--aurora-b)"></span>Backup activates if primary scratches</span>
+      <span class="key-item"><span class="key-dot" style="background:var(--gold)"></span>⬇️ Lowest position wins</span>
+      <span class="key-item"><span class="key-dot" style="background:var(--muted)"></span>Rookies tagged (r) in Race Standings</span>
+    </div>
+    <div class="family-grid" id="grid-rookie">
+      <div class="no-data"><span class="emoji">⏳</span>Loading...</div>
+    </div>
+  </div>
+
+  <!-- BRACKET 4: FINISH TIME -->
+  <div id="view-time" class="view">
+    <div class="bracket-header">
+      <h2>⏱️ Finish Time Bracket</h2>
+      <p>Each person guessed how long the race winner would take. Closest guess wins.</p>
+    </div>
+    <div class="scoring-key">
+      <strong>SCORING:</strong>
+      <span class="key-item"><span class="key-dot" style="background:var(--aurora-b)"></span>Guesses in days + hours</span>
+      <span class="key-item"><span class="key-dot" style="background:var(--aurora-g)"></span>Closest to actual finish time wins</span>
+      <span class="key-item"><span class="key-dot" style="background:var(--gold)"></span>Enter actual time in ⚙️ Configure once race ends</span>
+    </div>
+    <div id="time-winner-banner"></div>
+    <div class="family-grid" id="grid-time">
+      <div class="no-data"><span class="emoji">⏳</span>Loading...</div>
+    </div>
+  </div>
+
+  <!-- RACE STANDINGS -->
+  <div id="view-race" class="view">
+    <div class="standings-section">
+      <h2>📋 Full Race Standings</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Pos</th><th>Musher</th><th>Status</th><th>Checkpoint</th><th>Rookie</th><th>Picked By</th></tr></thead>
+          <tbody id="standings-tbody"><tr><td colspan="6" class="no-data">Loading...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFIG -->
+  <div id="view-config" class="view">
+    <div class="config-section">
+      <h2>⚙️ Configure Picks</h2>
+      <p>Update family members, musher picks, rookie picks, and finish time guesses. Names must match exactly as shown in Race Standings.</p>
+
+      <div class="info-box">
+        <strong>🤖 Live Data</strong>
+        GitHub Actions scrapes iditarod.com every 3 hours → saves to <code>standings.json</code> → this page fetches it automatically. Trigger manually: Actions tab → Scrape Iditarod Standings → Run workflow.
+      </div>
+
+      <div class="finish-time-block">
+        <h3>🏁 Actual Winner Finish Time</h3>
+        <p>Enter once the race winner crosses the finish line. Leave blank while race is ongoing.</p>
+        <div class="finish-time-inputs">
+          <div>
+            <label style="display:block;font-family:'Teko',sans-serif;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem">Days</label>
+            <input id="actual-days" type="number" min="0" max="30" placeholder="e.g. 9"
+              style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(168,216,234,.15);border-radius:6px;padding:.5rem .75rem;color:var(--text);font-family:'Source Serif 4',serif;font-size:.95rem"/>
+          </div>
+          <div>
+            <label style="display:block;font-family:'Teko',sans-serif;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem">Hours</label>
+            <input id="actual-hours" type="number" min="0" max="23" placeholder="e.g. 14"
+              style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(168,216,234,.15);border-radius:6px;padding:.5rem .75rem;color:var(--text);font-family:'Source Serif 4',serif;font-size:.95rem"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="member-blocks" id="member-blocks"></div>
+      <button class="save-btn" onclick="saveConfig()">💾 Save All Picks</button>
+      <div class="save-confirm" id="save-confirm">✓ Saved!</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// DEFAULT_CONFIG is loaded from picks.js
+// Falls back to empty config if picks.js fails to load
+const DEFAULT_CONFIG = (typeof PICKS !== 'undefined') ? PICKS : {
+  actualFinishDays: null, actualFinishHours: null,
+  members: []
+};
+
+// ══════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════
+let config   = loadConfig();
+let raceData = [];
+
+function loadConfig(){
+  try{
+    const s = localStorage.getItem('iditarod-config-2026');
+    if(!s) return JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+    const stored = JSON.parse(s);
+    // Merge in any new fields from DEFAULT_CONFIG that might be missing
+    stored.members = stored.members.map((m,i) => ({...DEFAULT_CONFIG.members[i], ...m}));
+    return stored;
+  } catch(e){ return JSON.parse(JSON.stringify(DEFAULT_CONFIG)); }
+}
+
+function saveConfig(){
+  const ad = document.getElementById('actual-days').value;
+  const ah = document.getElementById('actual-hours').value;
+  config.actualFinishDays  = ad !== '' ? parseFloat(ad)  : null;
+  config.actualFinishHours = ah !== '' ? parseFloat(ah) : null;
+
+  document.querySelectorAll('.member-block[data-idx]').forEach(block => {
+    const i = parseInt(block.dataset.idx);
+    config.members[i].name           = block.querySelector('.inp-name').value.trim() || config.members[i].name;
+    config.members[i].color          = block.querySelector('.inp-color').value;
+    config.members[i].picks          = [
+      block.querySelector('.inp-p1').value,
+      block.querySelector('.inp-p2').value,
+      block.querySelector('.inp-p3').value
+    ].map(s=>s.trim()).filter(Boolean);
+    config.members[i].rookiePrimary  = block.querySelector('.inp-rp').value.trim();
+    config.members[i].rookieBackup   = block.querySelector('.inp-rb').value.trim();
+    config.members[i].timeGuessDays  = parseFloat(block.querySelector('.inp-td').value)||0;
+    config.members[i].timeGuessHours = parseFloat(block.querySelector('.inp-th').value)||0;
+  });
+
+  localStorage.setItem('iditarod-config-2026', JSON.stringify(config));
+  const el = document.getElementById('save-confirm');
+  el.style.display = 'block';
+  setTimeout(()=>el.style.display='none', 3000);
+  renderAll();
+}
+
+// ══════════════════════════════════════════════════
+// FETCH standings.json
+// ══════════════════════════════════════════════════
+async function fetchStandings(){
+  const dot = document.getElementById('status-dot');
+  const txt = document.getElementById('status-text');
+  txt.innerHTML = '<span class="loader"></span> Fetching latest standings...';
+  try{
+    const res  = await fetch('standings.json?t='+Date.now(), {cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const json = await res.json();
+    if(!json.mushers||json.mushers.length===0) throw new Error('No musher data yet');
+    raceData = json.mushers;
+    const updated = json.updated ? new Date(json.updated).toLocaleString() : 'unknown';
+    dot.className = 'status-dot';
+    txt.textContent = `✅ ${raceData.length} mushers — last scraped ${updated}`;
+  } catch(err){
+    console.warn('standings.json fetch failed:', err.message);
+    dot.className = 'status-dot warn';
+    txt.innerHTML = '⚠️ standings.json not populated — Actions tab → "Scrape Iditarod Standings" → Run workflow.';
+    raceData = [];
+  }
+  renderAll();
+}
+
+// ══════════════════════════════════════════════════
+// HELPERS
+// ══════════════════════════════════════════════════
+function norm(s){ return (s||'').toLowerCase().trim().replace(/\s+/g,' '); }
+
+function findMusher(name){
+  if(!name) return null;
+  return raceData.find(r => norm(r.name) === norm(name)) || null;
+}
+
+function isRookie(m){ return m && /\(r\)/i.test(m.name); }
+
+function posClass(pos){
+  return pos===1?'gold':pos===2?'silver':pos===3?'bronze':'';
+}
+
+function musherScore(m, lastPlace){
+  if(!m) return lastPlace+10;
+  if(m.status==='Scratched') return lastPlace+10;
+  return m.pos || lastPlace+10;
+}
+
+function toHours(days, hours){ return (parseFloat(days)||0)*24 + (parseFloat(hours)||0); }
+
+function formatDiff(totalHours){
+  const d = Math.floor(totalHours/24);
+  const h = Math.round(totalHours%24);
+  if(d>0) return `${d}d ${h}h`;
+  return `${h}h`;
+}
+
+const medals = ['🥇','🥈','🥉','4️⃣'];
+
+// ══════════════════════════════════════════════════
+// BRACKET 1 — TOTAL SCORE
+// ══════════════════════════════════════════════════
+function renderScoreBracket(){
+  const grid      = document.getElementById('grid-score');
+  const lastPlace = raceData.length || 50;
+
+  const scored = config.members.map(member => {
+    let total = 0;
+    const details = member.picks.map(picked => {
+      const m   = findMusher(picked);
+      const scr = m && m.status==='Scratched';
+      const s   = musherScore(m, lastPlace);
+      total += s;
+      return { name:picked, m, score:s, scr };
+    });
+    return {...member, total, details};
+  }).sort((a,b)=>a.total-b.total);
+
+  grid.innerHTML = scored.map((m,rank) => `
+    <div class="family-card ${rank===0?'leading':''}" style="--card-color:${m.color}">
+      <div class="card-rank">${rank+1}</div>
+      <div class="card-name">${m.name} ${medals[rank]||''}</div>
+      <div class="card-score">Combined: ${m.total} · ${rank===0?'🏆 Leading!':'Rank #'+(rank+1)}</div>
+      <div class="card-body">
+        ${m.details.map(d => {
+          const pos  = d.m ? d.m.pos : null;
+          const scr  = d.scr;
+          const pc   = scr?'scr':!pos?'unknown':posClass(pos);
+          const pl   = scr?'SCR':pos?'#'+pos:'—';
+          const ckpt = d.m ? (d.m.checkpoint||'') : '';
+          return `<div class="card-row">
+            <span class="musher-pos ${pc}">${pl}</span>
+            <span class="musher-name">${d.name}</span>
+            <span class="musher-pts ${scr||!pos?'muted':''}" style="font-size:.8rem;color:var(--muted)">${ckpt}</span>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`).join('');
+}
+
+// ══════════════════════════════════════════════════
+// BRACKET 2 — BEST MUSHER
+// ══════════════════════════════════════════════════
+function renderBestMusherBracket(){
+  const grid      = document.getElementById('grid-best');
+  const lastPlace = raceData.length || 50;
+
+  const scored = config.members.map(member => {
+    const mushers = member.picks.map(picked => {
+      const m = findMusher(picked);
+      return { name:picked, m, score: musherScore(m, lastPlace) };
+    }).sort((a,b)=>a.score-b.score);
+
+    return {...member, best: mushers[0], rest: mushers.slice(1)};
+  }).sort((a,b)=>a.best.score-b.best.score);
+
+  grid.innerHTML = scored.map((m,rank) => {
+    const b  = m.best;
+    const bm = b.m;
+    const bpos  = bm ? bm.pos : null;
+    const bscr  = bm && bm.status==='Scratched';
+    const bpc   = bscr?'scr':!bpos?'unknown':posClass(bpos);
+    const bpl   = bscr?'SCR':bpos?'#'+bpos:'—';
+
+    return `
+    <div class="family-card ${rank===0?'leading':''}" style="--card-color:${m.color}">
+      <div class="card-rank">${rank+1}</div>
+      <div class="card-name">${m.name} ${medals[rank]||''}</div>
+      <div class="card-score">Best: ${bpl} · ${rank===0?'🏆 Leading!':'Rank #'+(rank+1)}</div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="musher-pos ${bpc}" style="font-size:1.2rem">${bpl}</span>
+          <span class="musher-name" style="font-weight:600">${b.name}</span>
+          <span class="badge badge-win">BEST</span>
+        </div>
+        <div class="divider"></div>
+        ${m.rest.map(d => {
+          const dm  = d.m;
+          const dpos = dm ? dm.pos : null;
+          const dscr = dm && dm.status==='Scratched';
+          const dpc  = dscr?'scr':!dpos?'unknown':posClass(dpos);
+          const dpl  = dscr?'SCR':dpos?'#'+dpos:'—';
+          return `<div class="card-row" style="opacity:.55">
+            <span class="musher-pos ${dpc}" style="font-size:.9rem">${dpl}</span>
+            <span class="musher-name" style="font-size:.82rem">${d.name}</span>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ══════════════════════════════════════════════════
+// BRACKET 3 — ROOKIE BRACKET
+// ══════════════════════════════════════════════════
+function renderRookieBracket(){
+  const grid      = document.getElementById('grid-rookie');
+  const lastPlace = raceData.length || 50;
+
+  const scored = config.members.map(member => {
+    const pm  = findMusher(member.rookiePrimary);
+    const bkm = findMusher(member.rookieBackup);
+
+    // Use primary; if scratched or missing fall back to backup
+    const primaryScr = pm && pm.status==='Scratched';
+    const useBackup  = !pm || primaryScr;
+    const active     = useBackup ? bkm : pm;
+    const score      = musherScore(active, lastPlace);
+
+    return {...member, pm, bkm, active, useBackup, primaryScr, rookieScore:score};
+  }).sort((a,b)=>a.rookieScore-b.rookieScore);
+
+  grid.innerHTML = scored.map((m,rank) => {
+    const noPicksSet = !m.rookiePrimary && !m.rookieBackup;
+
+    const pmPos  = m.pm  ? m.pm.pos  : null;
+    const pmScr  = m.pm  && m.pm.status==='Scratched';
+    const bkmPos = m.bkm ? m.bkm.pos : null;
+    const bkmScr = m.bkm && m.bkm.status==='Scratched';
+
+    const activePos = m.active ? (m.active.status==='Scratched'?'SCR':m.active.pos?'#'+m.active.pos:'—') : '—';
+    const activePc  = m.active ? (m.active.status==='Scratched'?'scr':posClass(m.active.pos)) : 'unknown';
+
+    return `
+    <div class="family-card ${rank===0&&!noPicksSet?'leading':''}" style="--card-color:${m.color}">
+      <div class="card-rank">${rank+1}</div>
+      <div class="card-name">${m.name} ${noPicksSet?'':medals[rank]||''}</div>
+      <div class="card-score">${noPicksSet?'No picks set — see ⚙️ Configure':'Active: '+activePos+(rank===0?' · 🏆 Leading!':' · Rank #'+(rank+1))}</div>
+      <div class="card-body">
+        ${noPicksSet
+          ? `<div style="color:var(--muted);font-size:.85rem;font-style:italic">Set rookie picks in ⚙️ Configure tab</div>`
+          : `
+        <div class="card-row">
+          <span class="badge badge-rookie" style="min-width:4.8rem;text-align:center">PRIMARY</span>
+          <span class="musher-pos ${pmScr?'scr':!pmPos?'unknown':posClass(pmPos)}">${pmScr?'SCR':pmPos?'#'+pmPos:'—'}</span>
+          <span class="musher-name">${m.rookiePrimary||'—'}</span>
+          ${pmScr?'<span class="badge badge-scr">SCR</span>':''}
+          ${!pmScr&&m.pm&&!m.useBackup?'<span class="badge badge-win">ACTIVE</span>':''}
+        </div>
+        <div class="card-row">
+          <span class="badge badge-backup" style="min-width:4.8rem;text-align:center">BACKUP</span>
+          <span class="musher-pos ${bkmScr?'scr':!bkmPos?'unknown':posClass(bkmPos)}">${bkmScr?'SCR':bkmPos?'#'+bkmPos:'—'}</span>
+          <span class="musher-name">${m.rookieBackup||'—'}</span>
+          ${bkmScr?'<span class="badge badge-scr">SCR</span>':''}
+          ${m.useBackup&&m.bkm&&!bkmScr?'<span class="badge badge-win">ACTIVE</span>':''}
+        </div>
+        ${m.useBackup&&m.primaryScr?`<div style="font-size:.75rem;color:var(--aurora-p);margin-top:.3rem;font-style:italic">⚡ Backup activated — primary scratched</div>`:''}
+        `}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ══════════════════════════════════════════════════
+// BRACKET 4 — FINISH TIME
+// ══════════════════════════════════════════════════
+function renderTimeBracket(){
+  const grid   = document.getElementById('grid-time');
+  const banner = document.getElementById('time-winner-banner');
+
+  const actualHours = (config.actualFinishDays!=null && config.actualFinishHours!=null)
+    ? toHours(config.actualFinishDays, config.actualFinishHours)
+    : null;
+
+  const scored = config.members.map(member => {
+    const guessHours = toHours(member.timeGuessDays, member.timeGuessHours);
+    const diff = actualHours!=null ? Math.abs(guessHours - actualHours) : null;
+    return {...member, guessHours, diff};
+  }).sort((a,b)=>{
+    if(a.diff==null&&b.diff==null) return 0;
+    if(a.diff==null) return 1;
+    if(b.diff==null) return -1;
+    return a.diff-b.diff;
+  });
+
+  if(actualHours!=null){
+    const w = scored[0];
+    banner.innerHTML=`<div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.75rem;">
+      <span style="font-family:'Teko',sans-serif;font-size:1.1rem;color:var(--gold);letter-spacing:.05em">
+        🏁 RACE COMPLETE — Winner time: ${config.actualFinishDays}d ${config.actualFinishHours}h &nbsp;|&nbsp;
+        🥇 Closest guess: <strong>${w.name}</strong> — off by ${formatDiff(w.diff)}
+      </span>
+    </div>`;
+  } else {
+    banner.innerHTML='';
+  }
+
+  grid.innerHTML = scored.map((m,rank) => {
+    const gd = Math.floor(m.guessHours/24);
+    const gh = Math.round(m.guessHours%24);
+    const diffStr   = m.diff!=null ? formatDiff(m.diff) : null;
+    const diffClass = m.diff==null?'off':m.diff<12?'winner':m.diff<48?'close':'off';
+    const isWinner  = rank===0 && actualHours!=null;
+
+    return `
+    <div class="family-card ${isWinner?'leading':''}" style="--card-color:${m.color}">
+      <div class="card-rank">${rank+1}</div>
+      <div class="card-name">${m.name} ${actualHours!=null?medals[rank]||'':''}</div>
+      <div class="card-score">${actualHours!=null?'Off by '+(diffStr||'?'):gd+'d '+gh+'h guess'}</div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-row-label">Guess</span>
+          <span class="time-display">${gd}d ${gh}h</span>
+        </div>
+        ${actualHours!=null?`
+        <div class="card-row">
+          <span class="card-row-label">Actual</span>
+          <span class="time-display">${config.actualFinishDays}d ${config.actualFinishHours}h</span>
+        </div>
+        <div class="card-row">
+          <span class="card-row-label">Diff</span>
+          <span class="time-diff ${diffClass}">${diffStr} ${isWinner?'🏆':''}</span>
+        </div>`:`
+        <div style="color:var(--muted);font-size:.8rem;font-style:italic;margin-top:.25rem">Enter actual finish time in ⚙️ Configure when race ends</div>`}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ══════════════════════════════════════════════════
+// RACE STANDINGS TABLE
+// ══════════════════════════════════════════════════
+function renderStandingsTable(){
+  const tbody = document.getElementById('standings-tbody');
+  if(!raceData.length){
+    tbody.innerHTML='<tr><td colspan="6" class="no-data">No race data yet</td></tr>';
+    return;
+  }
+  // Build picked-by map — includes main picks AND rookie picks
+  const pickedBy={};
+  config.members.forEach(m=>{
+    const allPicks = [...(m.picks||[]), m.rookiePrimary||'', m.rookieBackup||''].filter(Boolean);
+    allPicks.forEach(p=>{
+      const k=norm(p);
+      if(!pickedBy[k]) pickedBy[k]=[];
+      if(!pickedBy[k].find(x=>x.name===m.name)) pickedBy[k].push(m);
+    });
+  });
+
+  tbody.innerHTML = raceData.map(m=>{
+    const k       = norm(m.name);
+    const pickers = pickedBy[k]||[];
+    const rookie  = isRookie(m);
+    const pc      = m.pos===1?'p1':m.pos===2?'p2':m.pos===3?'p3':'';
+    const sc      = m.status==='Finished'?'s-finished':m.status==='Scratched'?'s-scr':'s-racing';
+    return `<tr class="${pickers.length?'picked':''} ${rookie?'rookie-hl':''} ${pc}">
+      <td><span class="pos-num">${m.pos}</span></td>
+      <td>${m.name}</td>
+      <td><span class="${sc}">${m.status||'Racing'}</span></td>
+      <td style="color:var(--muted);font-size:.85rem">${m.checkpoint||'—'}</td>
+      <td>${rookie?'<span class="badge badge-rookie">Rookie</span>':''}</td>
+      <td><div class="picked-by">${pickers.map(p=>`<span class="picker-tag" style="color:${p.color};border-color:${p.color}40;background:${p.color}10">${p.name.split(' ')[0]}</span>`).join('')}</div></td>
+    </tr>`;
+  }).join('');
+}
+
+// ══════════════════════════════════════════════════
+// CONFIG FORM
+// ══════════════════════════════════════════════════
+function renderConfigForm(){
+  if(config.actualFinishDays!=null)  document.getElementById('actual-days').value  = config.actualFinishDays;
+  if(config.actualFinishHours!=null) document.getElementById('actual-hours').value = config.actualFinishHours;
+
+  const rookies = raceData.filter(isRookie).map(r=>r.name);
+
+  document.getElementById('member-blocks').innerHTML = config.members.map((m,i)=>`
+    <div class="member-block" data-idx="${i}">
+      <div class="block-title" style="color:${m.color}">${m.name||'Member '+(i+1)}</div>
+
+      <label>Name</label>
+      <input class="inp-name" type="text" value="${m.name}" placeholder="e.g. Dad"/>
+      <div class="color-row">
+        <input class="inp-color" type="color" value="${m.color}"/>
+        <label style="margin-bottom:0">Color</label>
+      </div>
+
+      <div class="section-label" style="margin-top:.25rem">🏁 Musher Picks</div>
+      <label>Pick 1</label><input class="inp-p1" type="text" value="${m.picks[0]||''}" placeholder="Musher full name"/>
+      <label>Pick 2</label><input class="inp-p2" type="text" value="${m.picks[1]||''}" placeholder="Musher full name"/>
+      <label>Pick 3</label><input class="inp-p3" type="text" value="${m.picks[2]||''}" placeholder="Musher full name"/>
+
+      <div class="section-divider"></div>
+      <div class="section-label">🐾 Rookie Picks</div>
+      ${rookies.length?`<div style="font-size:.72rem;color:var(--muted);margin-bottom:.5rem;line-height:1.5;font-style:italic">2026 rookies: ${rookies.join(', ')}</div>`:''}
+      <label>Primary Rookie</label>
+      <input class="inp-rp" type="text" value="${m.rookiePrimary||''}" placeholder="e.g. Sam Martin (r)"/>
+      <label>Backup Rookie</label>
+      <input class="inp-rb" type="text" value="${m.rookieBackup||''}" placeholder="Used if primary scratches"/>
+
+      <div class="section-divider"></div>
+      <div class="section-label">⏱️ Finish Time Guess</div>
+      <div class="time-row">
+        <div><label>Days</label><input class="inp-td" type="number" min="0" max="30" value="${m.timeGuessDays||0}"/></div>
+        <div><label>Hours</label><input class="inp-th" type="number" min="0" max="23" value="${m.timeGuessHours||0}"/></div>
+      </div>
+    </div>`).join('');
+}
+
+// ══════════════════════════════════════════════════
+// RENDER ALL + NAV
+// ══════════════════════════════════════════════════
+function renderAll(){
+  renderScoreBracket();
+  renderBestMusherBracket();
+  renderRookieBracket();
+  renderTimeBracket();
+  renderStandingsTable();
+  renderConfigForm();
+}
+
+function showView(name,btn){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('view-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ══════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════
+renderConfigForm();
+fetchStandings();
+</script>
+</body>
+</html>
