@@ -37,8 +37,8 @@ const PICKS = {
       ],
 
       // Rookie bracket — primary used first, backup if primary scratches
-      rookiePrimary: "Sadie Lindquist",   // e.g. "Sam Martin (r)"
-      rookieBackup:  "Jessie Terry",   // e.g. "Brenda Mackey (r)"
+      rookiePrimary: "Sadie Lindquist (r)",   // e.g. "Sam Martin (r)"
+      rookieBackup:  "Jessie Terry (r)",   // e.g. "Brenda Mackey (r)"
 
       // Finish Time bracket — guess for winner's total race time
       timeGuessDays:  10,
@@ -55,8 +55,8 @@ const PICKS = {
         "Wade Marrs"
       ],
 
-      rookiePrimary: "Sam Peperman",
-      rookieBackup:  "Sam Martin",
+      rookiePrimary: "Sam Peperman (r)",
+      rookieBackup:  "Sam Martin (r)",
 
       timeGuessDays:  9,
       timeGuessHours: 2
@@ -72,8 +72,8 @@ const PICKS = {
         "Peter Kaiser"
       ],
 
-      rookiePrimary: "Richie Beattie",
-      rookieBackup:  "Brenda Mackey",
+      rookiePrimary: "Richie Beattie (r)",
+      rookieBackup:  "Brenda Mackey (r)",
 
       timeGuessDays:  9,
       timeGuessHours: 8
@@ -89,8 +89,8 @@ const PICKS = {
         "Bailey Vitello"
       ],
 
-      rookiePrimary: "Joseph Sabin",
-      rookieBackup:  "Kjell Rukke",
+      rookiePrimary: "Joseph Sabin (r)",
+      rookieBackup:  "Kjell Rukke (r)",
 
       timeGuessDays:  9,
       timeGuessHours: 6
