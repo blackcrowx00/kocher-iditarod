@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-14T02:31:11.919Z",
+  "updated": "2026-03-14T04:47:30.914Z",
   "source": "https://iditarod.com/race/2026/standings/",
   "count": 33,
   "mushers": [
@@ -7,7 +7,7 @@
       "pos": 1,
       "name": "Jessie Holmes",
       "status": "Racing",
-      "checkpoint": "Ruby"
+      "checkpoint": "Galena"
     },
     {
       "pos": 2,
@@ -22,56 +22,32 @@
       "checkpoint": "Ruby"
     },
     {
-      "pos": 4,
+      "pos": 5,
       "name": "Travis Beals",
       "status": "Racing",
       "checkpoint": "Ruby"
     },
     {
-      "pos": 5,
+      "pos": 6,
       "name": "Mille Porsild",
       "status": "Racing",
       "checkpoint": "Ruby"
     },
     {
-      "pos": 6,
+      "pos": 10,
       "name": "Ryan Redington",
       "status": "Racing",
       "checkpoint": "Ruby"
     },
     {
-      "pos": 7,
+      "pos": 11,
       "name": "Michelle Phillips",
       "status": "Racing",
       "checkpoint": "Ruby"
     },
     {
-      "pos": 8,
-      "name": "Jeff Deeter",
-      "status": "Racing",
-      "checkpoint": "Ruby"
-    },
-    {
-      "pos": 9,
-      "name": "Matt Hall",
-      "status": "Racing",
-      "checkpoint": "Ruby"
-    },
-    {
-      "pos": 10,
-      "name": "Peter Kaiser",
-      "status": "Racing",
-      "checkpoint": "Ruby"
-    },
-    {
-      "pos": 11,
-      "name": "Wade Marrs",
-      "status": "Racing",
-      "checkpoint": "Ruby"
-    },
-    {
       "pos": 12,
-      "name": "Jessie Royer",
+      "name": "Wade Marrs",
       "status": "Racing",
       "checkpoint": "Ruby"
     },
@@ -83,15 +59,27 @@
     },
     {
       "pos": 14,
-      "name": "Bailey Vitello",
+      "name": "Jessie Royer",
       "status": "Racing",
-      "checkpoint": "Cripple"
+      "checkpoint": "8 •"
+    },
+    {
+      "pos": 14,
+      "name": "Hanna Lyrek",
+      "status": "Racing",
+      "checkpoint": "Ruby"
     },
     {
       "pos": 15,
-      "name": "Hanna Lyrek",
+      "name": "Bailey Vitello",
       "status": "Racing",
-      "checkpoint": "Cripple"
+      "checkpoint": "Ruby"
+    },
+    {
+      "pos": 16,
+      "name": "Matt Hall",
+      "status": "Racing",
+      "checkpoint": "4 •"
     },
     {
       "pos": 16,
@@ -130,12 +118,6 @@
       "checkpoint": "Cripple"
     },
     {
-      "pos": 21,
-      "name": "Richie Beattie (r)",
-      "status": "Racing",
-      "checkpoint": "25 •"
-    },
-    {
       "pos": 22,
       "name": "Chad Stoddard",
       "status": "Racing",
@@ -154,14 +136,20 @@
       "checkpoint": "Cripple"
     },
     {
-      "pos": 26,
+      "pos": 25,
       "name": "Sydnie Bahl (r)",
       "status": "Racing",
       "checkpoint": "Cripple"
     },
     {
-      "pos": 27,
+      "pos": 26,
       "name": "Jason Mackey",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 27,
+      "name": "Richie Beattie (r)",
       "status": "Racing",
       "checkpoint": "Cripple"
     },
@@ -173,33 +161,45 @@
     },
     {
       "pos": 29,
-      "name": "Grayson Bruton",
+      "name": "Sadie Lindquist (r)",
       "status": "Racing",
-      "checkpoint": "Ophir"
+      "checkpoint": "Cripple"
     },
     {
       "pos": 30,
       "name": "Sam Paperman (r)",
       "status": "Racing",
-      "checkpoint": "Ophir"
+      "checkpoint": "Cripple"
     },
     {
       "pos": 31,
-      "name": "Sadie Lindquist (r)",
+      "name": "Adam Lindenmuth (r)",
+      "status": "Racing",
+      "checkpoint": "Cripple"
+    },
+    {
+      "pos": 32,
+      "name": "Grayson Bruton",
       "status": "Racing",
       "checkpoint": "Ophir"
     },
     {
-      "pos": 32,
-      "name": "Adam Lindenmuth (r)",
+      "pos": 33,
+      "name": "Peter Kaiser",
       "status": "Racing",
-      "checkpoint": "Ophir"
+      "checkpoint": "9 •"
     },
     {
       "pos": 33,
       "name": "Jody Potts-Joseph (r)",
       "status": "Racing",
       "checkpoint": "Ophir"
+    },
+    {
+      "pos": 35,
+      "name": "Jeff Deeter",
+      "status": "Racing",
+      "checkpoint": "7 •"
     }
   ]
 }
