@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-14T04:47:30.914Z",
+  "updated": "2026-03-14T06:56:16.188Z",
   "source": "https://iditarod.com/race/2026/standings/",
   "count": 33,
   "mushers": [
@@ -13,11 +13,17 @@
       "pos": 2,
       "name": "Paige Drobny",
       "status": "Racing",
-      "checkpoint": "Ruby"
+      "checkpoint": "Galena"
     },
     {
       "pos": 3,
       "name": "Riley Dyche",
+      "status": "Racing",
+      "checkpoint": "Ruby"
+    },
+    {
+      "pos": 4,
+      "name": "Matt Hall",
       "status": "Racing",
       "checkpoint": "Ruby"
     },
@@ -30,6 +36,24 @@
     {
       "pos": 6,
       "name": "Mille Porsild",
+      "status": "Racing",
+      "checkpoint": "Ruby"
+    },
+    {
+      "pos": 7,
+      "name": "Jeff Deeter",
+      "status": "Racing",
+      "checkpoint": "Ruby"
+    },
+    {
+      "pos": 8,
+      "name": "Jessie Royer",
+      "status": "Racing",
+      "checkpoint": "Ruby"
+    },
+    {
+      "pos": 9,
+      "name": "Peter Kaiser",
       "status": "Racing",
       "checkpoint": "Ruby"
     },
@@ -59,12 +83,6 @@
     },
     {
       "pos": 14,
-      "name": "Jessie Royer",
-      "status": "Racing",
-      "checkpoint": "8 •"
-    },
-    {
-      "pos": 14,
       "name": "Hanna Lyrek",
       "status": "Racing",
       "checkpoint": "Ruby"
@@ -74,18 +92,6 @@
       "name": "Bailey Vitello",
       "status": "Racing",
       "checkpoint": "Ruby"
-    },
-    {
-      "pos": 16,
-      "name": "Matt Hall",
-      "status": "Racing",
-      "checkpoint": "4 •"
-    },
-    {
-      "pos": 16,
-      "name": "Josi (Thyr) Shelley",
-      "status": "Racing",
-      "checkpoint": "Cripple"
     },
     {
       "pos": 17,
@@ -149,6 +155,12 @@
     },
     {
       "pos": 27,
+      "name": "Josi (Thyr) Shelley",
+      "status": "Racing",
+      "checkpoint": "16 •"
+    },
+    {
+      "pos": 27,
       "name": "Richie Beattie (r)",
       "status": "Racing",
       "checkpoint": "Cripple"
@@ -181,25 +193,13 @@
       "pos": 32,
       "name": "Grayson Bruton",
       "status": "Racing",
-      "checkpoint": "Ophir"
-    },
-    {
-      "pos": 33,
-      "name": "Peter Kaiser",
-      "status": "Racing",
-      "checkpoint": "9 •"
+      "checkpoint": "Cripple"
     },
     {
       "pos": 33,
       "name": "Jody Potts-Joseph (r)",
       "status": "Racing",
-      "checkpoint": "Ophir"
-    },
-    {
-      "pos": 35,
-      "name": "Jeff Deeter",
-      "status": "Racing",
-      "checkpoint": "7 •"
+      "checkpoint": "Cripple"
     }
   ]
 }
