@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-14T13:03:45.582Z",
+  "updated": "2026-03-14T15:33:35.392Z",
   "source": "https://iditarod.com/race/2026/standings/",
   "count": 33,
   "mushers": [
@@ -7,7 +7,7 @@
       "pos": 1,
       "name": "Jessie Holmes",
       "status": "Racing",
-      "checkpoint": "Galena"
+      "checkpoint": "Nulato"
     },
     {
       "pos": 2,
@@ -29,25 +29,13 @@
     },
     {
       "pos": 5,
-      "name": "Mille Porsild",
-      "status": "Racing",
-      "checkpoint": "Galena"
-    },
-    {
-      "pos": 5,
-      "name": "Ryan Redington",
-      "status": "Racing",
-      "checkpoint": "12 •"
-    },
-    {
-      "pos": 6,
-      "name": "Michelle Phillips",
+      "name": "Wade Marrs",
       "status": "Racing",
       "checkpoint": "Galena"
     },
     {
       "pos": 7,
-      "name": "Wade Marrs",
+      "name": "Michelle Phillips",
       "status": "Racing",
       "checkpoint": "Galena"
     },
@@ -76,6 +64,12 @@
       "checkpoint": "Galena"
     },
     {
+      "pos": 12,
+      "name": "Ryan Redington",
+      "status": "Racing",
+      "checkpoint": "Galena"
+    },
+    {
       "pos": 13,
       "name": "Lauro Eklund",
       "status": "Racing",
@@ -86,6 +80,12 @@
       "name": "Josi (Thyr) Shelley",
       "status": "Racing",
       "checkpoint": "Ruby"
+    },
+    {
+      "pos": 15,
+      "name": "Mille Porsild",
+      "status": "Racing",
+      "checkpoint": "6 •"
     },
     {
       "pos": 15,
@@ -143,19 +143,19 @@
     },
     {
       "pos": 24,
+      "name": "Jason Mackey",
+      "status": "Racing",
+      "checkpoint": "Ruby"
+    },
+    {
+      "pos": 25,
       "name": "Keaton Loebrich",
       "status": "Racing",
       "checkpoint": "Cripple"
     },
     {
-      "pos": 25,
-      "name": "Sydnie Bahl (r)",
-      "status": "Racing",
-      "checkpoint": "Cripple"
-    },
-    {
       "pos": 26,
-      "name": "Jason Mackey",
+      "name": "Sydnie Bahl (r)",
       "status": "Racing",
       "checkpoint": "Cripple"
     },
