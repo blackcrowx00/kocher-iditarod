@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-15T02:52:01.537Z",
+  "updated": "2026-03-15T05:10:16.637Z",
   "source": "https://iditarod.com/race/2026/standings/",
   "count": 33,
   "mushers": [
@@ -13,7 +13,7 @@
       "pos": 2,
       "name": "Paige Drobny",
       "status": "Racing",
-      "checkpoint": "Nulato"
+      "checkpoint": "Kaltag"
     },
     {
       "pos": 3,
@@ -28,8 +28,8 @@
       "checkpoint": "Nulato"
     },
     {
-      "pos": 6,
-      "name": "Wade Marrs",
+      "pos": 5,
+      "name": "Riley Dyche",
       "status": "Racing",
       "checkpoint": "Nulato"
     },
@@ -67,7 +67,7 @@
       "pos": 12,
       "name": "Lauro Eklund",
       "status": "Racing",
-      "checkpoint": "Galena"
+      "checkpoint": "Nulato"
     },
     {
       "pos": 13,
@@ -104,12 +104,6 @@
       "name": "Rohn Buser",
       "status": "Racing",
       "checkpoint": "Galena"
-    },
-    {
-      "pos": 19,
-      "name": "Riley Dyche",
-      "status": "Racing",
-      "checkpoint": "5 •"
     },
     {
       "pos": 19,
@@ -155,6 +149,12 @@
     },
     {
       "pos": 26,
+      "name": "Wade Marrs",
+      "status": "Racing",
+      "checkpoint": "6 •"
+    },
+    {
+      "pos": 26,
       "name": "Sydnie Bahl (r)",
       "status": "Racing",
       "checkpoint": "Ruby"
@@ -173,31 +173,31 @@
     },
     {
       "pos": 29,
-      "name": "Sadie Lindquist (r)",
+      "name": "Grayson Bruton",
       "status": "Racing",
       "checkpoint": "Ruby"
     },
     {
       "pos": 30,
-      "name": "Adam Lindenmuth (r)",
+      "name": "Sadie Lindquist (r)",
       "status": "Racing",
       "checkpoint": "Ruby"
     },
     {
       "pos": 31,
-      "name": "Sam Paperman (r)",
+      "name": "Adam Lindenmuth (r)",
       "status": "Racing",
       "checkpoint": "Ruby"
     },
     {
       "pos": 32,
-      "name": "Jody Potts-Joseph (r)",
+      "name": "Sam Paperman (r)",
       "status": "Racing",
       "checkpoint": "Ruby"
     },
     {
       "pos": 33,
-      "name": "Grayson Bruton",
+      "name": "Jody Potts-Joseph (r)",
       "status": "Racing",
       "checkpoint": "Ruby"
     }
