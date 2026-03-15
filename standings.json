@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-15T07:05:51.941Z",
+  "updated": "2026-03-15T09:40:31.091Z",
   "source": "https://iditarod.com/race/2026/standings/",
   "count": 33,
   "mushers": [
@@ -23,15 +23,15 @@
     },
     {
       "pos": 4,
-      "name": "Travis Beals",
+      "name": "Riley Dyche",
       "status": "Racing",
       "checkpoint": "Kaltag"
     },
     {
-      "pos": 6,
-      "name": "Wade Marrs",
+      "pos": 5,
+      "name": "Travis Beals",
       "status": "Racing",
-      "checkpoint": "Nulato"
+      "checkpoint": "Kaltag"
     },
     {
       "pos": 7,
@@ -59,12 +59,6 @@
     },
     {
       "pos": 11,
-      "name": "Peter Kaiser",
-      "status": "Racing",
-      "checkpoint": "Nulato"
-    },
-    {
-      "pos": 12,
       "name": "Lauro Eklund",
       "status": "Racing",
       "checkpoint": "Nulato"
@@ -77,39 +71,33 @@
     },
     {
       "pos": 14,
-      "name": "Bailey Vitello",
+      "name": "Josi (Thyr) Shelley",
       "status": "Racing",
-      "checkpoint": "Galena"
+      "checkpoint": "Nulato"
     },
     {
       "pos": 15,
-      "name": "Josi (Thyr) Shelley",
+      "name": "Jessie Royer",
       "status": "Racing",
-      "checkpoint": "Galena"
+      "checkpoint": "Nulato"
     },
     {
       "pos": 16,
-      "name": "Jessie Royer",
+      "name": "Bailey Vitello",
       "status": "Racing",
-      "checkpoint": "Galena"
+      "checkpoint": "Nulato"
     },
     {
       "pos": 17,
       "name": "Sam Martin (r)",
       "status": "Racing",
-      "checkpoint": "Galena"
+      "checkpoint": "Nulato"
     },
     {
       "pos": 18,
       "name": "Rohn Buser",
       "status": "Racing",
       "checkpoint": "Galena"
-    },
-    {
-      "pos": 19,
-      "name": "Riley Dyche",
-      "status": "Racing",
-      "checkpoint": "5 •"
     },
     {
       "pos": 19,
@@ -125,13 +113,13 @@
     },
     {
       "pos": 21,
-      "name": "Brenda Mackey (r)",
+      "name": "Gabe Dunham",
       "status": "Racing",
       "checkpoint": "Galena"
     },
     {
       "pos": 22,
-      "name": "Gabe Dunham",
+      "name": "Brenda Mackey (r)",
       "status": "Racing",
       "checkpoint": "Galena"
     },
@@ -155,21 +143,27 @@
     },
     {
       "pos": 26,
+      "name": "Wade Marrs",
+      "status": "Racing",
+      "checkpoint": "6 •"
+    },
+    {
+      "pos": 26,
       "name": "Sydnie Bahl (r)",
       "status": "Racing",
-      "checkpoint": "Ruby"
+      "checkpoint": "Galena"
     },
     {
       "pos": 27,
       "name": "Richie Beattie (r)",
       "status": "Racing",
-      "checkpoint": "Ruby"
+      "checkpoint": "Galena"
     },
     {
       "pos": 28,
       "name": "Joseph Sabin (r)",
       "status": "Racing",
-      "checkpoint": "Ruby"
+      "checkpoint": "Galena"
     },
     {
       "pos": 29,
@@ -194,6 +188,12 @@
       "name": "Adam Lindenmuth (r)",
       "status": "Racing",
       "checkpoint": "Ruby"
+    },
+    {
+      "pos": 33,
+      "name": "Peter Kaiser",
+      "status": "Racing",
+      "checkpoint": "12 •"
     },
     {
       "pos": 33,
