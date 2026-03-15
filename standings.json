@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-15T09:40:31.091Z",
+  "updated": "2026-03-15T13:04:34.266Z",
   "source": "https://iditarod.com/race/2026/standings/",
   "count": 33,
   "mushers": [
@@ -16,6 +16,12 @@
       "checkpoint": "Kaltag"
     },
     {
+      "pos": 2,
+      "name": "Adam Lindenmuth (r)",
+      "status": "Racing",
+      "checkpoint": "31 •"
+    },
+    {
       "pos": 3,
       "name": "Mille Porsild",
       "status": "Racing",
@@ -29,37 +35,49 @@
     },
     {
       "pos": 5,
+      "name": "Wade Marrs",
+      "status": "Racing",
+      "checkpoint": "Kaltag"
+    },
+    {
+      "pos": 6,
       "name": "Travis Beals",
       "status": "Racing",
       "checkpoint": "Kaltag"
     },
     {
       "pos": 7,
-      "name": "Ryan Redington",
+      "name": "Jeff Deeter",
       "status": "Racing",
-      "checkpoint": "Nulato"
+      "checkpoint": "Kaltag"
     },
     {
       "pos": 8,
-      "name": "Michelle Phillips",
+      "name": "Ryan Redington",
       "status": "Racing",
-      "checkpoint": "Nulato"
+      "checkpoint": "Kaltag"
     },
     {
       "pos": 9,
-      "name": "Jeff Deeter",
+      "name": "Michelle Phillips",
       "status": "Racing",
-      "checkpoint": "Nulato"
+      "checkpoint": "Kaltag"
     },
     {
       "pos": 10,
       "name": "Matt Hall",
       "status": "Racing",
-      "checkpoint": "Nulato"
+      "checkpoint": "Kaltag"
     },
     {
       "pos": 11,
       "name": "Lauro Eklund",
+      "status": "Racing",
+      "checkpoint": "Kaltag"
+    },
+    {
+      "pos": 12,
+      "name": "Peter Kaiser",
       "status": "Racing",
       "checkpoint": "Nulato"
     },
@@ -97,7 +115,7 @@
       "pos": 18,
       "name": "Rohn Buser",
       "status": "Racing",
-      "checkpoint": "Galena"
+      "checkpoint": "Nulato"
     },
     {
       "pos": 19,
@@ -125,27 +143,27 @@
     },
     {
       "pos": 23,
-      "name": "Jesse Terry (r)",
+      "name": "Keaton Loebrich",
       "status": "Racing",
       "checkpoint": "Galena"
     },
     {
       "pos": 24,
+      "name": "Jesse Terry (r)",
+      "status": "Racing",
+      "checkpoint": "Galena"
+    },
+    {
+      "pos": 25,
       "name": "Jason Mackey",
       "status": "Racing",
       "checkpoint": "Galena"
     },
     {
       "pos": 25,
-      "name": "Keaton Loebrich",
+      "name": "Sam Paperman (r)",
       "status": "Racing",
-      "checkpoint": "Galena"
-    },
-    {
-      "pos": 26,
-      "name": "Wade Marrs",
-      "status": "Racing",
-      "checkpoint": "6 •"
+      "checkpoint": "30 •"
     },
     {
       "pos": 26,
@@ -167,33 +185,15 @@
     },
     {
       "pos": 29,
-      "name": "Grayson Bruton",
-      "status": "Racing",
-      "checkpoint": "Ruby"
-    },
-    {
-      "pos": 30,
       "name": "Sadie Lindquist (r)",
       "status": "Racing",
-      "checkpoint": "Ruby"
-    },
-    {
-      "pos": 31,
-      "name": "Sam Paperman (r)",
-      "status": "Racing",
-      "checkpoint": "Ruby"
+      "checkpoint": "Galena"
     },
     {
       "pos": 32,
-      "name": "Adam Lindenmuth (r)",
+      "name": "Grayson Bruton",
       "status": "Racing",
       "checkpoint": "Ruby"
-    },
-    {
-      "pos": 33,
-      "name": "Peter Kaiser",
-      "status": "Racing",
-      "checkpoint": "12 •"
     },
     {
       "pos": 33,
