@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-15T15:34:35.228Z",
+  "updated": "2026-03-15T18:48:21.234Z",
   "source": "https://iditarod.com/race/2026/standings/",
   "count": 33,
   "mushers": [
@@ -7,7 +7,7 @@
       "pos": 1,
       "name": "Jessie Holmes",
       "status": "Racing",
-      "checkpoint": "Kaltag"
+      "checkpoint": "Unalakleet"
     },
     {
       "pos": 2,
@@ -22,6 +22,12 @@
       "checkpoint": "Kaltag"
     },
     {
+      "pos": 3,
+      "name": "Rohn Buser",
+      "status": "Racing",
+      "checkpoint": "19 •"
+    },
+    {
       "pos": 4,
       "name": "Riley Dyche",
       "status": "Racing",
@@ -32,12 +38,6 @@
       "name": "Wade Marrs",
       "status": "Racing",
       "checkpoint": "Kaltag"
-    },
-    {
-      "pos": 5,
-      "name": "Ryan Redington",
-      "status": "Racing",
-      "checkpoint": "10 •"
     },
     {
       "pos": 6,
@@ -64,6 +64,12 @@
       "checkpoint": "Kaltag"
     },
     {
+      "pos": 10,
+      "name": "Ryan Redington",
+      "status": "Racing",
+      "checkpoint": "Kaltag"
+    },
+    {
       "pos": 11,
       "name": "Lauro Eklund",
       "status": "Racing",
@@ -76,76 +82,70 @@
       "checkpoint": "Kaltag"
     },
     {
+      "pos": 12,
+      "name": "Keaton Loebrich",
+      "status": "Racing",
+      "checkpoint": "24 •"
+    },
+    {
       "pos": 13,
       "name": "Hanna Lyrek",
       "status": "Racing",
-      "checkpoint": "Nulato"
+      "checkpoint": "Kaltag"
     },
     {
       "pos": 14,
-      "name": "Sam Martin (r)",
+      "name": "Josi (Thyr) Shelley",
       "status": "Racing",
-      "checkpoint": "Nulato"
+      "checkpoint": "Kaltag"
     },
     {
       "pos": 15,
-      "name": "Josi (Thyr) Shelley",
+      "name": "Sam Martin (r)",
       "status": "Racing",
-      "checkpoint": "Nulato"
+      "checkpoint": "Kaltag"
     },
     {
       "pos": 16,
-      "name": "Jessie Royer",
-      "status": "Racing",
-      "checkpoint": "Nulato"
-    },
-    {
-      "pos": 17,
       "name": "Bailey Vitello",
       "status": "Racing",
       "checkpoint": "Nulato"
     },
     {
-      "pos": 18,
-      "name": "Rohn Buser",
+      "pos": 17,
+      "name": "Jessie Royer",
       "status": "Racing",
       "checkpoint": "Nulato"
     },
     {
-      "pos": 19,
-      "name": "Kevin Hansen (r)",
+      "pos": 18,
+      "name": "Jesse Terry (r)",
       "status": "Racing",
       "checkpoint": "Nulato"
     },
     {
       "pos": 20,
-      "name": "Gabe Dunham",
+      "name": "Kevin Hansen (r)",
       "status": "Racing",
       "checkpoint": "Nulato"
     },
     {
       "pos": 21,
-      "name": "Chad Stoddard",
+      "name": "Gabe Dunham",
       "status": "Racing",
       "checkpoint": "Nulato"
     },
     {
       "pos": 22,
-      "name": "Brenda Mackey (r)",
+      "name": "Chad Stoddard",
       "status": "Racing",
       "checkpoint": "Nulato"
     },
     {
       "pos": 23,
-      "name": "Keaton Loebrich",
+      "name": "Brenda Mackey (r)",
       "status": "Racing",
-      "checkpoint": "Galena"
-    },
-    {
-      "pos": 24,
-      "name": "Jesse Terry (r)",
-      "status": "Racing",
-      "checkpoint": "Galena"
+      "checkpoint": "Nulato"
     },
     {
       "pos": 25,
@@ -161,13 +161,13 @@
     },
     {
       "pos": 27,
-      "name": "Jason Mackey",
+      "name": "Joseph Sabin (r)",
       "status": "Racing",
       "checkpoint": "Galena"
     },
     {
       "pos": 28,
-      "name": "Joseph Sabin (r)",
+      "name": "Jason Mackey",
       "status": "Racing",
       "checkpoint": "Galena"
     },
