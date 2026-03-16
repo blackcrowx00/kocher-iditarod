@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-16T05:21:51.140Z",
+  "updated": "2026-03-16T07:26:34.706Z",
   "source": "https://iditarod.com/race/2026/standings/",
   "count": 33,
   "mushers": [
@@ -7,7 +7,7 @@
       "pos": 1,
       "name": "Jessie Holmes",
       "status": "Racing",
-      "checkpoint": "Unalakleet"
+      "checkpoint": "Shaktoolik"
     },
     {
       "pos": 2,
@@ -20,12 +20,6 @@
       "name": "Paige Drobny",
       "status": "Racing",
       "checkpoint": "Unalakleet"
-    },
-    {
-      "pos": 3,
-      "name": "Rohn Buser",
-      "status": "Racing",
-      "checkpoint": "19 •"
     },
     {
       "pos": 4,
@@ -118,16 +112,40 @@
       "checkpoint": "Kaltag"
     },
     {
-      "pos": 21,
+      "pos": 18,
       "name": "Gabe Dunham",
+      "status": "Racing",
+      "checkpoint": "22 •"
+    },
+    {
+      "pos": 19,
+      "name": "Rohn Buser",
       "status": "Racing",
       "checkpoint": "Kaltag"
     },
     {
-      "pos": 22,
+      "pos": 20,
+      "name": "Kevin Hansen (r)",
+      "status": "Racing",
+      "checkpoint": "Kaltag"
+    },
+    {
+      "pos": 20,
+      "name": "Sydnie Bahl (r)",
+      "status": "Racing",
+      "checkpoint": "26 •"
+    },
+    {
+      "pos": 21,
       "name": "Chad Stoddard",
       "status": "Racing",
       "checkpoint": "Kaltag"
+    },
+    {
+      "pos": 21,
+      "name": "Richie Beattie (r)",
+      "status": "Racing",
+      "checkpoint": "27 •"
     },
     {
       "pos": 23,
@@ -145,28 +163,10 @@
       "pos": 25,
       "name": "Keaton Loebrich",
       "status": "Racing",
-      "checkpoint": "Nulato"
-    },
-    {
-      "pos": 26,
-      "name": "Sydnie Bahl (r)",
-      "status": "Racing",
-      "checkpoint": "Nulato"
-    },
-    {
-      "pos": 27,
-      "name": "Richie Beattie (r)",
-      "status": "Racing",
-      "checkpoint": "Nulato"
+      "checkpoint": "Kaltag"
     },
     {
       "pos": 28,
-      "name": "Sadie Lindquist (r)",
-      "status": "Racing",
-      "checkpoint": "Nulato"
-    },
-    {
-      "pos": 29,
       "name": "Joseph Sabin (r)",
       "status": "Racing",
       "checkpoint": "Nulato"
@@ -179,27 +179,27 @@
     },
     {
       "pos": 31,
+      "name": "Sadie Lindquist (r)",
+      "status": "Racing",
+      "checkpoint": "29 •"
+    },
+    {
+      "pos": 31,
       "name": "Adam Lindenmuth (r)",
       "status": "Racing",
       "checkpoint": "Nulato"
     },
     {
       "pos": 32,
-      "name": "Grayson Bruton",
-      "status": "Racing",
-      "checkpoint": "Galena"
-    },
-    {
-      "pos": 33,
       "name": "Jody Potts-Joseph (r)",
       "status": "Racing",
-      "checkpoint": "Galena"
+      "checkpoint": "33 •"
     },
     {
-      "pos": 34,
-      "name": "Kevin Hansen (r)",
+      "pos": 37,
+      "name": "Grayson Bruton",
       "status": "Racing",
-      "checkpoint": "20 •"
+      "checkpoint": "32 •"
     }
   ]
 }
