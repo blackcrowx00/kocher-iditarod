@@ -1,13 +1,19 @@
 {
-  "updated": "2026-03-16T16:10:31.897Z",
+  "updated": "2026-03-16T19:11:29.768Z",
   "source": "https://iditarod.com/race/2026/standings/",
   "count": 33,
   "mushers": [
     {
+      "pos": 1,
+      "name": "Jessie Holmes",
+      "status": "Racing",
+      "checkpoint": "Koyuk"
+    },
+    {
       "pos": 2,
       "name": "Travis Beals",
       "status": "Racing",
-      "checkpoint": "Shaktoolik"
+      "checkpoint": "Koyuk"
     },
     {
       "pos": 3,
@@ -35,12 +41,6 @@
     },
     {
       "pos": 7,
-      "name": "Jessie Holmes",
-      "status": "Racing",
-      "checkpoint": "1 •"
-    },
-    {
-      "pos": 7,
       "name": "Riley Dyche",
       "status": "Racing",
       "checkpoint": "Shaktoolik"
@@ -52,56 +52,62 @@
       "checkpoint": "Shaktoolik"
     },
     {
+      "pos": 9,
+      "name": "Michelle Phillips",
+      "status": "Racing",
+      "checkpoint": "Unalakleet"
+    },
+    {
       "pos": 10,
-      "name": "Ryan Redington",
+      "name": "Hanna Lyrek",
       "status": "Racing",
       "checkpoint": "Unalakleet"
     },
     {
       "pos": 11,
-      "name": "Lauro Eklund",
-      "status": "Racing",
-      "checkpoint": "Unalakleet"
-    },
-    {
-      "pos": 12,
       "name": "Peter Kaiser",
       "status": "Racing",
       "checkpoint": "Unalakleet"
     },
     {
       "pos": 13,
-      "name": "Hanna Lyrek",
+      "name": "Ryan Redington",
       "status": "Racing",
       "checkpoint": "Unalakleet"
     },
     {
       "pos": 14,
-      "name": "Josi (Thyr) Shelley",
+      "name": "Jessie Royer",
       "status": "Racing",
-      "checkpoint": "Kaltag"
+      "checkpoint": "12 •"
+    },
+    {
+      "pos": 14,
+      "name": "Lauro Eklund",
+      "status": "Racing",
+      "checkpoint": "Unalakleet"
     },
     {
       "pos": 15,
+      "name": "Josi (Thyr) Shelley",
+      "status": "Racing",
+      "checkpoint": "Unalakleet"
+    },
+    {
+      "pos": 16,
       "name": "Sam Martin (r)",
       "status": "Racing",
       "checkpoint": "Kaltag"
     },
     {
-      "pos": 16,
+      "pos": 17,
       "name": "Bailey Vitello",
       "status": "Racing",
       "checkpoint": "Kaltag"
     },
     {
-      "pos": 17,
-      "name": "Jesse Terry (r)",
-      "status": "Racing",
-      "checkpoint": "Kaltag"
-    },
-    {
       "pos": 18,
-      "name": "Jessie Royer",
+      "name": "Jesse Terry (r)",
       "status": "Racing",
       "checkpoint": "Kaltag"
     },
@@ -170,12 +176,6 @@
       "name": "Sadie Lindquist (r)",
       "status": "Racing",
       "checkpoint": "Kaltag"
-    },
-    {
-      "pos": 30,
-      "name": "Michelle Phillips",
-      "status": "Racing",
-      "checkpoint": "9 •"
     },
     {
       "pos": 30,
