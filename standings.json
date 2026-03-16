@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-16T02:52:20.437Z",
+  "updated": "2026-03-16T05:21:51.140Z",
   "source": "https://iditarod.com/race/2026/standings/",
   "count": 33,
   "mushers": [
@@ -20,6 +20,12 @@
       "name": "Paige Drobny",
       "status": "Racing",
       "checkpoint": "Unalakleet"
+    },
+    {
+      "pos": 3,
+      "name": "Rohn Buser",
+      "status": "Racing",
+      "checkpoint": "19 •"
     },
     {
       "pos": 4,
@@ -47,25 +53,19 @@
     },
     {
       "pos": 8,
+      "name": "Ryan Redington",
+      "status": "Racing",
+      "checkpoint": "Unalakleet"
+    },
+    {
+      "pos": 9,
       "name": "Michelle Phillips",
       "status": "Racing",
       "checkpoint": "Kaltag"
     },
     {
-      "pos": 9,
-      "name": "Matt Hall",
-      "status": "Racing",
-      "checkpoint": "Kaltag"
-    },
-    {
-      "pos": 9,
-      "name": "Bailey Vitello",
-      "status": "Racing",
-      "checkpoint": "16 •"
-    },
-    {
       "pos": 10,
-      "name": "Ryan Redington",
+      "name": "Matt Hall",
       "status": "Racing",
       "checkpoint": "Kaltag"
     },
@@ -100,43 +100,43 @@
       "checkpoint": "Kaltag"
     },
     {
+      "pos": 16,
+      "name": "Bailey Vitello",
+      "status": "Racing",
+      "checkpoint": "Kaltag"
+    },
+    {
       "pos": 17,
-      "name": "Jessie Royer",
+      "name": "Jesse Terry (r)",
       "status": "Racing",
       "checkpoint": "Kaltag"
     },
     {
       "pos": 18,
-      "name": "Rohn Buser",
-      "status": "Racing",
-      "checkpoint": "Kaltag"
-    },
-    {
-      "pos": 19,
-      "name": "Kevin Hansen (r)",
-      "status": "Racing",
-      "checkpoint": "Kaltag"
-    },
-    {
-      "pos": 20,
-      "name": "Gabe Dunham",
+      "name": "Jessie Royer",
       "status": "Racing",
       "checkpoint": "Kaltag"
     },
     {
       "pos": 21,
-      "name": "Chad Stoddard",
+      "name": "Gabe Dunham",
       "status": "Racing",
       "checkpoint": "Kaltag"
     },
     {
       "pos": 22,
-      "name": "Brenda Mackey (r)",
+      "name": "Chad Stoddard",
       "status": "Racing",
       "checkpoint": "Kaltag"
     },
     {
       "pos": 23,
+      "name": "Brenda Mackey (r)",
+      "status": "Racing",
+      "checkpoint": "Kaltag"
+    },
+    {
+      "pos": 24,
       "name": "Jason Mackey",
       "status": "Racing",
       "checkpoint": "Kaltag"
@@ -148,28 +148,22 @@
       "checkpoint": "Nulato"
     },
     {
-      "pos": 25,
-      "name": "Sam Paperman (r)",
-      "status": "Racing",
-      "checkpoint": "30 •"
-    },
-    {
       "pos": 26,
       "name": "Sydnie Bahl (r)",
       "status": "Racing",
       "checkpoint": "Nulato"
     },
     {
-      "pos": 28,
+      "pos": 27,
       "name": "Richie Beattie (r)",
       "status": "Racing",
       "checkpoint": "Nulato"
     },
     {
-      "pos": 29,
-      "name": "Jesse Terry (r)",
+      "pos": 28,
+      "name": "Sadie Lindquist (r)",
       "status": "Racing",
-      "checkpoint": "24 •"
+      "checkpoint": "Nulato"
     },
     {
       "pos": 29,
@@ -178,16 +172,16 @@
       "checkpoint": "Nulato"
     },
     {
-      "pos": 31,
-      "name": "Sadie Lindquist (r)",
+      "pos": 30,
+      "name": "Sam Paperman (r)",
       "status": "Racing",
-      "checkpoint": "27 •"
+      "checkpoint": "Nulato"
     },
     {
       "pos": 31,
       "name": "Adam Lindenmuth (r)",
       "status": "Racing",
-      "checkpoint": "Galena"
+      "checkpoint": "Nulato"
     },
     {
       "pos": 32,
@@ -200,6 +194,12 @@
       "name": "Jody Potts-Joseph (r)",
       "status": "Racing",
       "checkpoint": "Galena"
+    },
+    {
+      "pos": 34,
+      "name": "Kevin Hansen (r)",
+      "status": "Racing",
+      "checkpoint": "20 •"
     }
   ]
 }
