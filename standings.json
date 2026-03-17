@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-17T19:10:02.776Z",
+  "updated": "2026-03-17T21:43:19.324Z",
   "source": "https://iditarod.com/race/2026/standings/",
   "count": 33,
   "mushers": [
@@ -17,21 +17,21 @@
     },
     {
       "pos": 3,
-      "name": "Wade Marrs",
+      "name": "Jeff Deeter",
       "status": "Racing",
-      "checkpoint": "Elim"
+      "checkpoint": "White Mountain"
     },
     {
       "pos": 4,
       "name": "Paige Drobny",
       "status": "Racing",
-      "checkpoint": "Elim"
+      "checkpoint": "White Mountain"
     },
     {
       "pos": 5,
-      "name": "Jeff Deeter",
+      "name": "Wade Marrs",
       "status": "Racing",
-      "checkpoint": "Elim"
+      "checkpoint": "White Mountain"
     },
     {
       "pos": 6,
@@ -41,33 +41,39 @@
     },
     {
       "pos": 7,
+      "name": "Riley Dyche",
+      "status": "Racing",
+      "checkpoint": "Elim"
+    },
+    {
+      "pos": 8,
       "name": "Mille Porsild",
       "status": "Racing",
       "checkpoint": "Elim"
     },
     {
       "pos": 8,
-      "name": "Riley Dyche",
+      "name": "Chad Stoddard",
       "status": "Racing",
-      "checkpoint": "Elim"
+      "checkpoint": "20 •"
     },
     {
       "pos": 9,
-      "name": "Bailey Vitello",
+      "name": "Michelle Phillips",
       "status": "Racing",
-      "checkpoint": "17 •"
+      "checkpoint": "Elim"
     },
     {
       "pos": 10,
       "name": "Lauro Eklund",
       "status": "Racing",
-      "checkpoint": "Koyuk"
+      "checkpoint": "Elim"
     },
     {
       "pos": 11,
       "name": "Peter Kaiser",
       "status": "Racing",
-      "checkpoint": "Koyuk"
+      "checkpoint": "Elim"
     },
     {
       "pos": 12,
@@ -100,22 +106,22 @@
       "checkpoint": "Koyuk"
     },
     {
-      "pos": 18,
-      "name": "Gabe Dunham",
+      "pos": 17,
+      "name": "Bailey Vitello",
       "status": "Racing",
-      "checkpoint": "Shaktoolik"
+      "checkpoint": "Koyuk"
+    },
+    {
+      "pos": 18,
+      "name": "Jesse Terry (r)",
+      "status": "Racing",
+      "checkpoint": "Koyuk"
     },
     {
       "pos": 19,
-      "name": "Chad Stoddard",
+      "name": "Gabe Dunham",
       "status": "Racing",
-      "checkpoint": "Shaktoolik"
-    },
-    {
-      "pos": 20,
-      "name": "Jesse Terry (r)",
-      "status": "Racing",
-      "checkpoint": "Shaktoolik"
+      "checkpoint": "Koyuk"
     },
     {
       "pos": 21,
@@ -157,7 +163,7 @@
       "pos": 27,
       "name": "Sadie Lindquist (r)",
       "status": "Racing",
-      "checkpoint": "Unalakleet"
+      "checkpoint": "Shaktoolik"
     },
     {
       "pos": 28,
@@ -173,12 +179,6 @@
     },
     {
       "pos": 30,
-      "name": "Michelle Phillips",
-      "status": "Racing",
-      "checkpoint": "9 •"
-    },
-    {
-      "pos": 30,
       "name": "Sam Paperman (r)",
       "status": "Racing",
       "checkpoint": "Unalakleet"
@@ -190,16 +190,16 @@
       "checkpoint": "Unalakleet"
     },
     {
-      "pos": 32,
+      "pos": 33,
       "name": "Jody Potts-Joseph (r)",
       "status": "Racing",
       "checkpoint": "Kaltag"
     },
     {
-      "pos": 33,
+      "pos": 37,
       "name": "Grayson Bruton",
       "status": "Racing",
-      "checkpoint": "Kaltag"
+      "checkpoint": "32 •"
     }
   ]
 }
