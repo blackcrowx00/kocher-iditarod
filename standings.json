@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-17T10:00:11.134Z",
+  "updated": "2026-03-17T13:23:57.443Z",
   "source": "https://iditarod.com/race/2026/standings/",
   "count": 33,
   "mushers": [
@@ -7,7 +7,7 @@
       "pos": 1,
       "name": "Jessie Holmes",
       "status": "Racing",
-      "checkpoint": "Elim"
+      "checkpoint": "White Mountain"
     },
     {
       "pos": 2,
@@ -19,19 +19,7 @@
       "pos": 3,
       "name": "Wade Marrs",
       "status": "Racing",
-      "checkpoint": "Koyuk"
-    },
-    {
-      "pos": 4,
-      "name": "Paige Drobny",
-      "status": "Racing",
-      "checkpoint": "Koyuk"
-    },
-    {
-      "pos": 5,
-      "name": "Jeff Deeter",
-      "status": "Racing",
-      "checkpoint": "Koyuk"
+      "checkpoint": "Elim"
     },
     {
       "pos": 6,
@@ -52,10 +40,10 @@
       "checkpoint": "Koyuk"
     },
     {
-      "pos": 9,
-      "name": "Michelle Phillips",
+      "pos": 10,
+      "name": "Paige Drobny",
       "status": "Racing",
-      "checkpoint": "Koyuk"
+      "checkpoint": "4 •"
     },
     {
       "pos": 10,
@@ -64,22 +52,28 @@
       "checkpoint": "Koyuk"
     },
     {
+      "pos": 11,
+      "name": "Peter Kaiser",
+      "status": "Racing",
+      "checkpoint": "Koyuk"
+    },
+    {
       "pos": 12,
       "name": "Hanna Lyrek",
       "status": "Racing",
-      "checkpoint": "Shaktoolik"
+      "checkpoint": "Koyuk"
     },
     {
       "pos": 13,
       "name": "Ryan Redington",
       "status": "Racing",
-      "checkpoint": "Shaktoolik"
+      "checkpoint": "Koyuk"
     },
     {
       "pos": 14,
       "name": "Jessie Royer",
       "status": "Racing",
-      "checkpoint": "Shaktoolik"
+      "checkpoint": "Koyuk"
     },
     {
       "pos": 15,
@@ -127,7 +121,7 @@
       "pos": 22,
       "name": "Rohn Buser",
       "status": "Racing",
-      "checkpoint": "Unalakleet"
+      "checkpoint": "Shaktoolik"
     },
     {
       "pos": 23,
@@ -173,9 +167,15 @@
     },
     {
       "pos": 30,
+      "name": "Michelle Phillips",
+      "status": "Racing",
+      "checkpoint": "9 •"
+    },
+    {
+      "pos": 30,
       "name": "Sam Paperman (r)",
       "status": "Racing",
-      "checkpoint": "Kaltag"
+      "checkpoint": "Unalakleet"
     },
     {
       "pos": 31,
@@ -191,15 +191,15 @@
     },
     {
       "pos": 33,
-      "name": "Peter Kaiser",
-      "status": "Racing",
-      "checkpoint": "11 •"
-    },
-    {
-      "pos": 33,
       "name": "Grayson Bruton",
       "status": "Racing",
       "checkpoint": "Kaltag"
+    },
+    {
+      "pos": 35,
+      "name": "Jeff Deeter",
+      "status": "Racing",
+      "checkpoint": "5 •"
     }
   ]
 }
