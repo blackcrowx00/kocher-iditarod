@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-17T13:23:57.443Z",
+  "updated": "2026-03-17T16:10:46.785Z",
   "source": "https://iditarod.com/race/2026/standings/",
   "count": 33,
   "mushers": [
@@ -13,7 +13,7 @@
       "pos": 2,
       "name": "Travis Beals",
       "status": "Racing",
-      "checkpoint": "Elim"
+      "checkpoint": "White Mountain"
     },
     {
       "pos": 3,
@@ -22,10 +22,22 @@
       "checkpoint": "Elim"
     },
     {
+      "pos": 4,
+      "name": "Paige Drobny",
+      "status": "Racing",
+      "checkpoint": "Elim"
+    },
+    {
+      "pos": 5,
+      "name": "Jeff Deeter",
+      "status": "Racing",
+      "checkpoint": "Elim"
+    },
+    {
       "pos": 6,
       "name": "Mille Porsild",
       "status": "Racing",
-      "checkpoint": "Koyuk"
+      "checkpoint": "Elim"
     },
     {
       "pos": 7,
@@ -40,10 +52,10 @@
       "checkpoint": "Koyuk"
     },
     {
-      "pos": 10,
-      "name": "Paige Drobny",
+      "pos": 9,
+      "name": "Michelle Phillips",
       "status": "Racing",
-      "checkpoint": "4 •"
+      "checkpoint": "Koyuk"
     },
     {
       "pos": 10,
@@ -95,25 +107,25 @@
     },
     {
       "pos": 18,
-      "name": "Jesse Terry (r)",
-      "status": "Racing",
-      "checkpoint": "Shaktoolik"
-    },
-    {
-      "pos": 19,
       "name": "Gabe Dunham",
       "status": "Racing",
       "checkpoint": "Shaktoolik"
     },
     {
+      "pos": 19,
+      "name": "Chad Stoddard",
+      "status": "Racing",
+      "checkpoint": "Shaktoolik"
+    },
+    {
       "pos": 20,
-      "name": "Kevin Hansen (r)",
+      "name": "Jesse Terry (r)",
       "status": "Racing",
       "checkpoint": "Shaktoolik"
     },
     {
       "pos": 21,
-      "name": "Chad Stoddard",
+      "name": "Kevin Hansen (r)",
       "status": "Racing",
       "checkpoint": "Shaktoolik"
     },
@@ -149,27 +161,21 @@
     },
     {
       "pos": 27,
-      "name": "Richie Beattie (r)",
-      "status": "Racing",
-      "checkpoint": "Unalakleet"
-    },
-    {
-      "pos": 28,
-      "name": "Joseph Sabin (r)",
-      "status": "Racing",
-      "checkpoint": "Unalakleet"
-    },
-    {
-      "pos": 29,
       "name": "Sadie Lindquist (r)",
       "status": "Racing",
       "checkpoint": "Unalakleet"
     },
     {
-      "pos": 30,
-      "name": "Michelle Phillips",
+      "pos": 28,
+      "name": "Richie Beattie (r)",
       "status": "Racing",
-      "checkpoint": "9 •"
+      "checkpoint": "Unalakleet"
+    },
+    {
+      "pos": 29,
+      "name": "Joseph Sabin (r)",
+      "status": "Racing",
+      "checkpoint": "Unalakleet"
     },
     {
       "pos": 30,
@@ -194,12 +200,6 @@
       "name": "Grayson Bruton",
       "status": "Racing",
       "checkpoint": "Kaltag"
-    },
-    {
-      "pos": 35,
-      "name": "Jeff Deeter",
-      "status": "Racing",
-      "checkpoint": "5 •"
     }
   ]
 }
