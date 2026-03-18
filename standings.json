@@ -1,19 +1,13 @@
 {
-  "updated": "2026-03-18T05:01:44.479Z",
+  "updated": "2026-03-18T07:09:19.550Z",
   "source": "https://iditarod.com/race/2026/standings/",
-  "count": 31,
+  "count": 30,
   "mushers": [
     {
       "pos": 1,
       "name": "Jessie Holmes",
       "status": "Racing",
-      "checkpoint": "Safety"
-    },
-    {
-      "pos": 2,
-      "name": "Travis Beals",
-      "status": "Racing",
-      "checkpoint": "White Mountain"
+      "checkpoint": "Nome"
     },
     {
       "pos": 3,
@@ -22,10 +16,10 @@
       "checkpoint": "White Mountain"
     },
     {
-      "pos": 3,
-      "name": "Rohn Buser",
+      "pos": 4,
+      "name": "Travis Beals",
       "status": "Racing",
-      "checkpoint": "20 •"
+      "checkpoint": "2 •"
     },
     {
       "pos": 4,
@@ -55,13 +49,19 @@
       "pos": 8,
       "name": "Michelle Phillips",
       "status": "Racing",
-      "checkpoint": "Elim"
+      "checkpoint": "White Mountain"
     },
     {
       "pos": 9,
       "name": "Lauro Eklund",
       "status": "Racing",
-      "checkpoint": "Elim"
+      "checkpoint": "White Mountain"
+    },
+    {
+      "pos": 9,
+      "name": "Bailey Vitello",
+      "status": "Racing",
+      "checkpoint": "17 •"
     },
     {
       "pos": 10,
@@ -91,25 +91,7 @@
       "pos": 14,
       "name": "Sam Martin (r)",
       "status": "Racing",
-      "checkpoint": "Koyuk"
-    },
-    {
-      "pos": 15,
-      "name": "Josi (Thyr) Shelley",
-      "status": "Racing",
-      "checkpoint": "Koyuk"
-    },
-    {
-      "pos": 16,
-      "name": "Bailey Vitello",
-      "status": "Racing",
-      "checkpoint": "Koyuk"
-    },
-    {
-      "pos": 17,
-      "name": "Jesse Terry (r)",
-      "status": "Racing",
-      "checkpoint": "Koyuk"
+      "checkpoint": "Elim"
     },
     {
       "pos": 18,
@@ -125,9 +107,9 @@
     },
     {
       "pos": 20,
-      "name": "Sydnie Bahl (r)",
+      "name": "Rohn Buser",
       "status": "Racing",
-      "checkpoint": "25 •"
+      "checkpoint": "Koyuk"
     },
     {
       "pos": 21,
@@ -148,10 +130,28 @@
       "checkpoint": "Koyuk"
     },
     {
+      "pos": 24,
+      "name": "Brenda Mackey (r)",
+      "status": "Racing",
+      "checkpoint": "Koyuk"
+    },
+    {
+      "pos": 25,
+      "name": "Sydnie Bahl (r)",
+      "status": "Racing",
+      "checkpoint": "Koyuk"
+    },
+    {
       "pos": 26,
       "name": "Joseph Sabin (r)",
       "status": "Racing",
       "checkpoint": "Shaktoolik"
+    },
+    {
+      "pos": 27,
+      "name": "Josi (Thyr) Shelley",
+      "status": "Racing",
+      "checkpoint": "16 •"
     },
     {
       "pos": 27,
@@ -167,6 +167,12 @@
     },
     {
       "pos": 29,
+      "name": "Jesse Terry (r)",
+      "status": "Racing",
+      "checkpoint": "15 •"
+    },
+    {
+      "pos": 29,
       "name": "Sam Paperman (r)",
       "status": "Racing",
       "checkpoint": "Shaktoolik"
@@ -175,19 +181,7 @@
       "pos": 30,
       "name": "Adam Lindenmuth (r)",
       "status": "Racing",
-      "checkpoint": "Unalakleet"
-    },
-    {
-      "pos": 31,
-      "name": "Grayson Bruton",
-      "status": "Racing",
-      "checkpoint": "Unalakleet"
-    },
-    {
-      "pos": 36,
-      "name": "Brenda Mackey (r)",
-      "status": "Racing",
-      "checkpoint": "24 •"
+      "checkpoint": "Shaktoolik"
     }
   ]
 }
