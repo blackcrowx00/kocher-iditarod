@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-18T07:09:19.550Z",
+  "updated": "2026-03-18T10:01:50.659Z",
   "source": "https://iditarod.com/race/2026/standings/",
   "count": 30,
   "mushers": [
@@ -10,16 +10,16 @@
       "checkpoint": "Nome"
     },
     {
+      "pos": 2,
+      "name": "Travis Beals",
+      "status": "Racing",
+      "checkpoint": "Safety"
+    },
+    {
       "pos": 3,
       "name": "Jeff Deeter",
       "status": "Racing",
       "checkpoint": "White Mountain"
-    },
-    {
-      "pos": 4,
-      "name": "Travis Beals",
-      "status": "Racing",
-      "checkpoint": "2 •"
     },
     {
       "pos": 4,
@@ -58,22 +58,16 @@
       "checkpoint": "White Mountain"
     },
     {
-      "pos": 9,
-      "name": "Bailey Vitello",
-      "status": "Racing",
-      "checkpoint": "17 •"
-    },
-    {
       "pos": 10,
       "name": "Peter Kaiser",
       "status": "Racing",
-      "checkpoint": "Elim"
+      "checkpoint": "White Mountain"
     },
     {
       "pos": 11,
       "name": "Hanna Lyrek",
       "status": "Racing",
-      "checkpoint": "Elim"
+      "checkpoint": "White Mountain"
     },
     {
       "pos": 12,
@@ -94,14 +88,32 @@
       "checkpoint": "Elim"
     },
     {
-      "pos": 18,
-      "name": "Chad Stoddard",
+      "pos": 15,
+      "name": "Jesse Terry (r)",
       "status": "Racing",
-      "checkpoint": "Koyuk"
+      "checkpoint": "Elim"
+    },
+    {
+      "pos": 16,
+      "name": "Josi (Thyr) Shelley",
+      "status": "Racing",
+      "checkpoint": "Elim"
+    },
+    {
+      "pos": 17,
+      "name": "Bailey Vitello",
+      "status": "Racing",
+      "checkpoint": "Elim"
+    },
+    {
+      "pos": 18,
+      "name": "Gabe Dunham",
+      "status": "Racing",
+      "checkpoint": "18 •"
     },
     {
       "pos": 19,
-      "name": "Gabe Dunham",
+      "name": "Chad Stoddard",
       "status": "Racing",
       "checkpoint": "Koyuk"
     },
@@ -143,33 +155,21 @@
     },
     {
       "pos": 26,
-      "name": "Joseph Sabin (r)",
-      "status": "Racing",
-      "checkpoint": "Shaktoolik"
-    },
-    {
-      "pos": 27,
-      "name": "Josi (Thyr) Shelley",
-      "status": "Racing",
-      "checkpoint": "16 •"
-    },
-    {
-      "pos": 27,
       "name": "Sadie Lindquist (r)",
       "status": "Racing",
-      "checkpoint": "Shaktoolik"
+      "checkpoint": "Koyuk"
+    },
+    {
+      "pos": 27,
+      "name": "Joseph Sabin (r)",
+      "status": "Racing",
+      "checkpoint": "Koyuk"
     },
     {
       "pos": 28,
       "name": "Richie Beattie (r)",
       "status": "Racing",
       "checkpoint": "Shaktoolik"
-    },
-    {
-      "pos": 29,
-      "name": "Jesse Terry (r)",
-      "status": "Racing",
-      "checkpoint": "15 •"
     },
     {
       "pos": 29,
