@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-18T16:11:38.062Z",
+  "updated": "2026-03-18T19:09:19.271Z",
   "source": "https://iditarod.com/race/2026/standings/",
   "count": 30,
   "mushers": [
@@ -31,13 +31,13 @@
       "pos": 5,
       "name": "Wade Marrs",
       "status": "Racing",
-      "checkpoint": "Safety"
+      "checkpoint": "Nome"
     },
     {
       "pos": 6,
       "name": "Matt Hall",
       "status": "Racing",
-      "checkpoint": "White Mountain"
+      "checkpoint": "Safety"
     },
     {
       "pos": 7,
@@ -85,7 +85,7 @@
       "pos": 14,
       "name": "Jesse Terry (r)",
       "status": "Racing",
-      "checkpoint": "Elim"
+      "checkpoint": "White Mountain"
     },
     {
       "pos": 15,
@@ -124,26 +124,44 @@
       "checkpoint": "Elim"
     },
     {
-      "pos": 22,
-      "name": "Keaton Loebrich",
+      "pos": 21,
+      "name": "Kevin Hansen (r)",
       "status": "Racing",
-      "checkpoint": "Koyuk"
+      "checkpoint": "Elim"
+    },
+    {
+      "pos": 22,
+      "name": "Jason Mackey",
+      "status": "Racing",
+      "checkpoint": "Elim"
     },
     {
       "pos": 23,
-      "name": "Brenda Mackey (r)",
+      "name": "Keaton Loebrich",
       "status": "Racing",
-      "checkpoint": "Koyuk"
+      "checkpoint": "Elim"
     },
     {
       "pos": 24,
-      "name": "Sydnie Bahl (r)",
+      "name": "Brenda Mackey (r)",
       "status": "Racing",
-      "checkpoint": "Koyuk"
+      "checkpoint": "Elim"
     },
     {
       "pos": 25,
-      "name": "Jason Mackey",
+      "name": "Sydnie Bahl (r)",
+      "status": "Racing",
+      "checkpoint": "Elim"
+    },
+    {
+      "pos": 25,
+      "name": "Sam Paperman (r)",
+      "status": "Racing",
+      "checkpoint": "29 •"
+    },
+    {
+      "pos": 26,
+      "name": "Sadie Lindquist (r)",
       "status": "Racing",
       "checkpoint": "Koyuk"
     },
@@ -160,28 +178,10 @@
       "checkpoint": "Koyuk"
     },
     {
-      "pos": 29,
-      "name": "Sam Paperman (r)",
-      "status": "Racing",
-      "checkpoint": "Koyuk"
-    },
-    {
       "pos": 30,
       "name": "Adam Lindenmuth (r)",
       "status": "Racing",
-      "checkpoint": "Shaktoolik"
-    },
-    {
-      "pos": 31,
-      "name": "Sadie Lindquist (r)",
-      "status": "Racing",
-      "checkpoint": "26 •"
-    },
-    {
-      "pos": 34,
-      "name": "Kevin Hansen (r)",
-      "status": "Racing",
-      "checkpoint": "21 •"
+      "checkpoint": "Koyuk"
     }
   ]
 }
