@@ -1,14 +1,8 @@
 {
-  "updated": "2026-03-17T21:43:19.324Z",
+  "updated": "2026-03-18T02:41:33.518Z",
   "source": "https://iditarod.com/race/2026/standings/",
-  "count": 33,
+  "count": 31,
   "mushers": [
-    {
-      "pos": 1,
-      "name": "Jessie Holmes",
-      "status": "Racing",
-      "checkpoint": "White Mountain"
-    },
     {
       "pos": 2,
       "name": "Travis Beals",
@@ -37,7 +31,13 @@
       "pos": 6,
       "name": "Matt Hall",
       "status": "Racing",
-      "checkpoint": "Elim"
+      "checkpoint": "White Mountain"
+    },
+    {
+      "pos": 7,
+      "name": "Jessie Holmes",
+      "status": "Racing",
+      "checkpoint": "1 •"
     },
     {
       "pos": 7,
@@ -47,39 +47,39 @@
     },
     {
       "pos": 8,
-      "name": "Mille Porsild",
-      "status": "Racing",
-      "checkpoint": "Elim"
-    },
-    {
-      "pos": 8,
-      "name": "Chad Stoddard",
-      "status": "Racing",
-      "checkpoint": "20 •"
-    },
-    {
-      "pos": 9,
       "name": "Michelle Phillips",
       "status": "Racing",
       "checkpoint": "Elim"
     },
     {
-      "pos": 10,
+      "pos": 9,
       "name": "Lauro Eklund",
       "status": "Racing",
       "checkpoint": "Elim"
     },
     {
-      "pos": 11,
+      "pos": 10,
       "name": "Peter Kaiser",
       "status": "Racing",
       "checkpoint": "Elim"
     },
     {
-      "pos": 12,
+      "pos": 11,
       "name": "Hanna Lyrek",
       "status": "Racing",
-      "checkpoint": "Koyuk"
+      "checkpoint": "Elim"
+    },
+    {
+      "pos": 11,
+      "name": "Joseph Sabin (r)",
+      "status": "Racing",
+      "checkpoint": "26 •"
+    },
+    {
+      "pos": 12,
+      "name": "Ryan Redington",
+      "status": "Racing",
+      "checkpoint": "Elim"
     },
     {
       "pos": 13,
@@ -89,7 +89,7 @@
     },
     {
       "pos": 14,
-      "name": "Ryan Redington",
+      "name": "Sam Martin (r)",
       "status": "Racing",
       "checkpoint": "Koyuk"
     },
@@ -101,105 +101,93 @@
     },
     {
       "pos": 16,
-      "name": "Sam Martin (r)",
-      "status": "Racing",
-      "checkpoint": "Koyuk"
-    },
-    {
-      "pos": 17,
       "name": "Bailey Vitello",
       "status": "Racing",
       "checkpoint": "Koyuk"
     },
     {
-      "pos": 18,
+      "pos": 17,
       "name": "Jesse Terry (r)",
       "status": "Racing",
       "checkpoint": "Koyuk"
     },
     {
-      "pos": 19,
+      "pos": 18,
       "name": "Gabe Dunham",
       "status": "Racing",
       "checkpoint": "Koyuk"
     },
     {
-      "pos": 21,
+      "pos": 19,
       "name": "Rohn Buser",
       "status": "Racing",
-      "checkpoint": "Shaktoolik"
+      "checkpoint": "Koyuk"
+    },
+    {
+      "pos": 20,
+      "name": "Chad Stoddard",
+      "status": "Racing",
+      "checkpoint": "Koyuk"
+    },
+    {
+      "pos": 21,
+      "name": "Kevin Hansen (r)",
+      "status": "Racing",
+      "checkpoint": "Koyuk"
     },
     {
       "pos": 22,
-      "name": "Kevin Hansen (r)",
-      "status": "Racing",
-      "checkpoint": "Shaktoolik"
-    },
-    {
-      "pos": 23,
       "name": "Jason Mackey",
       "status": "Racing",
       "checkpoint": "Shaktoolik"
     },
     {
-      "pos": 24,
+      "pos": 23,
       "name": "Keaton Loebrich",
       "status": "Racing",
       "checkpoint": "Shaktoolik"
     },
     {
-      "pos": 25,
+      "pos": 24,
       "name": "Sydnie Bahl (r)",
       "status": "Racing",
       "checkpoint": "Shaktoolik"
     },
     {
-      "pos": 26,
+      "pos": 25,
       "name": "Brenda Mackey (r)",
       "status": "Racing",
       "checkpoint": "Shaktoolik"
     },
     {
-      "pos": 27,
-      "name": "Sadie Lindquist (r)",
+      "pos": 28,
+      "name": "Richie Beattie (r)",
       "status": "Racing",
       "checkpoint": "Shaktoolik"
     },
     {
-      "pos": 28,
-      "name": "Joseph Sabin (r)",
-      "status": "Racing",
-      "checkpoint": "Unalakleet"
-    },
-    {
       "pos": 29,
-      "name": "Richie Beattie (r)",
+      "name": "Sam Paperman (r)",
       "status": "Racing",
-      "checkpoint": "Unalakleet"
+      "checkpoint": "Shaktoolik"
     },
     {
       "pos": 30,
-      "name": "Sam Paperman (r)",
-      "status": "Racing",
-      "checkpoint": "Unalakleet"
-    },
-    {
-      "pos": 31,
       "name": "Adam Lindenmuth (r)",
       "status": "Racing",
       "checkpoint": "Unalakleet"
     },
     {
-      "pos": 33,
-      "name": "Jody Potts-Joseph (r)",
+      "pos": 31,
+      "name": "Sadie Lindquist (r)",
       "status": "Racing",
-      "checkpoint": "Kaltag"
+      "checkpoint": "27 •"
     },
     {
-      "pos": 37,
+      "pos": 31,
       "name": "Grayson Bruton",
       "status": "Racing",
-      "checkpoint": "32 •"
+      "checkpoint": "Unalakleet"
     }
   ]
 }
