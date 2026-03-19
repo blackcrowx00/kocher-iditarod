@@ -1,7 +1,7 @@
 {
-  "updated": "2026-03-19T15:59:38.877Z",
+  "updated": "2026-03-19T19:05:48.992Z",
   "source": "https://iditarod.com/race/2026/standings/",
-  "count": 17,
+  "count": 20,
   "mushers": [
     {
       "pos": 1,
@@ -102,6 +102,24 @@
     {
       "pos": 17,
       "name": "Bailey Vitello",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 18,
+      "name": "Gabe Dunham",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 19,
+      "name": "Rohn Buser",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 20,
+      "name": "Chad Stoddard",
       "status": "Racing",
       "checkpoint": "Nome"
     }
