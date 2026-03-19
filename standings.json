@@ -1,7 +1,7 @@
 {
-  "updated": "2026-03-19T13:17:49.212Z",
+  "updated": "2026-03-19T15:59:38.877Z",
   "source": "https://iditarod.com/race/2026/standings/",
-  "count": 14,
+  "count": 17,
   "mushers": [
     {
       "pos": 1,
@@ -84,6 +84,24 @@
     {
       "pos": 14,
       "name": "Jesse Terry (r)",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 15,
+      "name": "Sam Martin (r)",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 16,
+      "name": "Josi (Thyr) Shelley",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 17,
+      "name": "Bailey Vitello",
       "status": "Racing",
       "checkpoint": "Nome"
     }
