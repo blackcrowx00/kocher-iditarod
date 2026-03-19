@@ -1,7 +1,7 @@
 {
-  "updated": "2026-03-18T21:40:23.169Z",
+  "updated": "2026-03-19T02:42:51.249Z",
   "source": "https://iditarod.com/race/2026/standings/",
-  "count": 6,
+  "count": 10,
   "mushers": [
     {
       "pos": 1,
@@ -36,6 +36,30 @@
     {
       "pos": 6,
       "name": "Matt Hall",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 7,
+      "name": "Riley Dyche",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 8,
+      "name": "Lauro Eklund",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 9,
+      "name": "Peter Kaiser",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 10,
+      "name": "Michelle Phillips",
       "status": "Racing",
       "checkpoint": "Nome"
     }
