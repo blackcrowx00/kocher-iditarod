@@ -1,7 +1,7 @@
 {
-  "updated": "2026-03-19T09:53:18.478Z",
+  "updated": "2026-03-19T13:17:49.212Z",
   "source": "https://iditarod.com/race/2026/standings/",
-  "count": 13,
+  "count": 14,
   "mushers": [
     {
       "pos": 1,
@@ -78,6 +78,12 @@
     {
       "pos": 13,
       "name": "Ryan Redington",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 14,
+      "name": "Jesse Terry (r)",
       "status": "Racing",
       "checkpoint": "Nome"
     }
