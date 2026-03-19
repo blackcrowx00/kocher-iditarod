@@ -1,7 +1,7 @@
 {
-  "updated": "2026-03-19T02:42:51.249Z",
+  "updated": "2026-03-19T04:59:44.250Z",
   "source": "https://iditarod.com/race/2026/standings/",
-  "count": 10,
+  "count": 12,
   "mushers": [
     {
       "pos": 1,
@@ -60,6 +60,18 @@
     {
       "pos": 10,
       "name": "Michelle Phillips",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 11,
+      "name": "Hanna Lyrek",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 12,
+      "name": "Jessie Royer",
       "status": "Racing",
       "checkpoint": "Nome"
     }
