@@ -1,7 +1,7 @@
 {
-  "updated": "2026-03-20T21:36:03.630Z",
+  "updated": "2026-03-21T02:28:08.950Z",
   "source": "https://iditarod.com/race/2026/standings/",
-  "count": 20,
+  "count": 21,
   "mushers": [
     {
       "pos": 1,
@@ -120,6 +120,12 @@
     {
       "pos": 20,
       "name": "Chad Stoddard",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 21,
+      "name": "Kevin Hansen (r)",
       "status": "Racing",
       "checkpoint": "Nome"
     }
