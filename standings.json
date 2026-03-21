@@ -1,7 +1,7 @@
 {
-  "updated": "2026-03-21T02:28:08.950Z",
+  "updated": "2026-03-21T04:41:51.293Z",
   "source": "https://iditarod.com/race/2026/standings/",
-  "count": 21,
+  "count": 29,
   "mushers": [
     {
       "pos": 1,
@@ -126,6 +126,54 @@
     {
       "pos": 21,
       "name": "Kevin Hansen (r)",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 22,
+      "name": "Sadie Lindquist (r)",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 23,
+      "name": "Joseph Sabin (r)",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 24,
+      "name": "Sam Paperman (r)",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 25,
+      "name": "Sydnie Bahl (r)",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 26,
+      "name": "Brenda Mackey (r)",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 27,
+      "name": "Keaton Loebrich",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 28,
+      "name": "Jason Mackey",
+      "status": "Racing",
+      "checkpoint": "Nome"
+    },
+    {
+      "pos": 29,
+      "name": "Richie Beattie (r)",
       "status": "Racing",
       "checkpoint": "Nome"
     }
